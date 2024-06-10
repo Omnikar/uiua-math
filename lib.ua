@@ -32,7 +32,7 @@ Mmp ← ⍜⍉⊞Dot
 Mvp ← Dot⍉
 # Matrix power
 # ? P M
-Mpow ← ⊙◌⍥(⊞(/+×),⍉):⊞=.⇡⧻,
+Mpow ← ⊙◌⍥(⊞Dot,⍉):⊞=.⇡⧻,
 
 # -- Number theory --
 
@@ -52,7 +52,7 @@ ModOrd ← ⊡1⊚=1◿:ⁿ⇡,
 
 # Binomial coefficient aka N choose K
 # ? K N
-Binom ← /×÷¬⟜+¯⇡
+Binom ← /×÷+1⟜-⇡
 
 # Convert a number X to a continued fraction to N terms
 # ? N X
