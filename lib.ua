@@ -43,12 +43,46 @@ GCD ← ◌⍢⊃◿∘±⌵
 # Ignores sign
 LCM ← ⌵÷⊃GCD×
 
+BaseEncImpl ↚ ⍉◌∧⊃◿(⊂¤⌊÷)⊞ⁿ⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
+BaseDecImpl ↚ /+×⊞ⁿ⇡⧻,⊙°⍉
+# Encode an array of numbers into digits of a given base.
+# Analogous to ⋯ for base 2; the least significant digit is first.
+# No °; see `BaseDec` for decoding from a base.
+#
+# `BaseEnc` allows multiple bases as input.
+# ```uiua
+# # Encodes 6 in base 2, 7 in base 3, 8 in base 4, and 9 in base 5.
+# BaseEnc [2_3 4_5] [6_7 8_9]
+# ## ╭─
+# ## ╷ 0 1 1
+# ## ╷ 1 2 0
+# ##
+# ##   0 2 0
+# ##   4 1 0
+# ##         ╯
+# ```
+BaseEnc ← setundBaseEncImpl ⟜BaseEncImpl BaseDecImpl
+# Decode an array of encoded lists of digits of a given base.
+# Analogous to °⋯ for base 2; the least significant digit is first.
+# See `BaseEnc` for encoding to a base.
+#
+# `BaseDec` allows multiple bases as input.
+# ```uiua
+# # Decodes 6 in base 2, 7 in base 3, 8 in base 4, and 9 in base 5.
+# BaseDecImpl [2_3 4_5] [[0_1_1 1_2_0] [0_2_0 4_1_0]]
+# ## ╭─
+# ## ╷ 6 7
+# ##   8 9
+# ##       ╯
+# ```
+BaseDec ← setundBaseDecImpl ⟜BaseDecImpl BaseEncImpl
+
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
 ModInv ← ⊗1◿:×⇡,
 # Multiplicative order of N modulo M
 # ? N M
-ModOrd ← ⊡1⊚=1◿:ⁿ⇡,
+ModOrd ← ⋊b⊚=1◿:ⁿ⇡,
 
 # Binomial coefficient aka N choose K
 # ? K N
