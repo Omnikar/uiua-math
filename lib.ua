@@ -107,10 +107,10 @@ Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
 # Powerset of a list
 PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 
-# Rank polymorphic fast fourier transform
+# Rank-polymorphic fast fourier transform
 RPFFT ← setinv(⍥(⍉fft)⧻△.|°⍥(⍉fft)⧻△.)
 
-# Rank polymorphic convolution using fast fourier transform
+# Rank-polymorphic convolution using fast fourier transform
 FFTConvolve ← ⍥R¬↥⊃∩type(
   ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
   ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
