@@ -16,7 +16,7 @@ HMean ← ÷/+⟜⧻÷:1
 QMean ← √÷⧻⟜/+°√
 Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 
-# -- Matrices --
+# -- Matrices/Vectors --
 
 # Dot product
 Dot ← /+×
@@ -33,6 +33,27 @@ Mvp ← Dot⍉
 # Matrix power
 # ? P M
 Mpow ← ⊙◌⍥(⊞Dot,⍉):⊞=.⇡⧻,
+
+QqpMask ↚ [
+  1_2_3_4
+  2_¯1_4_¯3
+  3_¯4_¯1_2
+  4_3_¯2_¯1
+]
+# Quaternion product
+# Computes P * Q for quaternion arrays P and Q.
+# Semi-pervasive; the last axis of the inputs must be of length 4,
+# and will be interpreted as the input quaternions' real, i, j, and k.
+# ```uiua
+# # Computes (1+2i+3j+4k)(1+3i+5j+7k) and (2+4i+6j+8k)(5+6i+7j+8k)
+# Qqp [1_2_3_4 2_4_6_8] [1_3_5_7 5_6_7_8]
+# ## ╭─
+# ## ╷  ¯48  6  6 12
+# ##   ¯120 24 60 48
+# ##                 ╯
+# ```
+# ? P Q
+Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 
 # -- Number theory --
 

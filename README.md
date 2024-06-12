@@ -13,6 +13,7 @@ Functions list (see in-code documentation for more detail)
 | `Mmp` | Matrix product |
 | `Mvp` | Matrix-vector product |
 | `Mpow` | Matrix power |
+| `Qqp` | Quaternion product |
 | `GCD` | Greatest common divisor |
 | `LCM` | Least common multiple |
 | `BaseEnc` | Encode an array of numbers into digits of a given base |
