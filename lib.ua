@@ -88,11 +88,10 @@ ModOrd ← ⋊b⊚=1◿:ⁿ⇡,
 # ? K N
 Binom ← /×÷+1⟜-⇡
 
-# Convert a number X to a continued fraction to N terms
+# Convert a number X to a continued fraction to N terms.
+# Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-ToCFrac ← ⇌◌⍥(⊙⊂÷:1◿1⟜⌊)⊙⊙[]
-# Convert to a number from a continued fraction
-FromCFrac ← /(+÷:1)⇌
+CFrac ← setinv[◌⍥⊃(÷:1◿1)⌊]⊃⧻/(+÷:1)
 
 # -- Misc --
 
