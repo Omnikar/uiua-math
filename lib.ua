@@ -54,6 +54,35 @@ QqpMask ↚ [
 # ```
 # ? P Q
 Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
+# Create 3D rotation quaternions.
+# Expects an angle array θ and a unit vector axis array U.
+# Semi-pervasive; the unit vector array must have one extra trailing
+# axis compared to the angle array, and that axis must be length 3.
+# For each angle-vector pair, computes cos(θ/2) + Usin(θ/2).
+# ```uiua
+# # Creates two rotation quaternions:
+# # - η radians about 0_0_1
+# # - π radians about 3/5_4/5_0
+# RQuat η_π [0_0_1 3/5_4/5_0]
+# ```
+# To use rotation quaternions created by `RQuat` to rotate 3D
+# vectors, see `QRot`.
+# ? θ U
+RQuat ← ⍜⊙°⍉⊂⊙×:°∠÷2
+QRotImpl ↚ ⍜⊙°⍉↘1⍥Qqp2⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
+# Rotate a 3D vector array using a quaternion array.
+# To create rotation quaternions to use with `QRot`, see `RQuat`.
+# Expects a quaternion array Q and a 3D vector array V.
+# Semi-pervasive; the input arrays should have matching shapes aside
+# from the final axis, which should be of lengths 4 and 3 respectively.
+# For each quaternion-vector pair, computes Q * V * Q'.
+# ```uiua
+# RQuat η 0_0_1        # Create a rotation by η radians about 0_0_1
+# QRot ¤:[3_2_0 1_3_2] # Use the quaternion to rotate 3_2_0 and 1_3_2
+# ```
+# `QRot` can be used with ⍜ to undo the rotations afterward.
+# ? Q V
+QRot ← setundQRotImpl ⟜QRotImpl (QRotImpl⍜(↘1°⍉)¯)
 
 # -- Number theory --
 
