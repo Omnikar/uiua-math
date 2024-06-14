@@ -166,3 +166,23 @@ FFTConvolve ← ⍥R¬↥⊃∩type(
   ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
   ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
 )
+
+# Seeded random index from a distribution array
+# Given a seed and a probability distribution array of any rank
+# containing numbers that sum to 1, `DistRand` returns a deep
+# index in the distribution array chosen randomly based on the
+# seed and distribution, and returns the next seed to be used.
+#
+# `DistRand` can be used with `⟜` to keep the distribution for
+# subsequent generations, so `⟜DistRand` can be chained to use
+# the same distribution and successive seeds.
+# ```uiua
+# # Start with a seed of 8
+# [0.1 0.4 0.3 0.2] 8
+# # Generate 10 random indices using the same distribution,
+# # and pop the distribution and seed afterward
+# [◌◌⍥⟜DistRand10]
+# ## [2 3 2 0 1 3 1 1 1 3]
+# ```
+# NextSeed Num ? Dist Seed
+DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
