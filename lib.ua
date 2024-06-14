@@ -145,12 +145,13 @@ CFrac ← setinv[◌⍥⊃(÷:1◿1)⌊]⊃⧻/(+÷:1)
 
 # -- Misc --
 
-# Permutations of N items
+# Permutation indices of N items
 # Indices ? N
 Perms ← ☇1⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 
 # Po-Shen quadratic solver
 # Returns roots as a list
+# Outputs complex-typed numbers only if the roots are complex
 # ? A B C
 Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
 
