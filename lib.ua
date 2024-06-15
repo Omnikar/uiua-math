@@ -186,3 +186,8 @@ FFTConvolve ← ⍥R¬↥⊃∩type(
 # ```
 # NextSeed Num ? Dist Seed
 DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
+
+# Box-Muller transform
+# Converts uniformly distributed pairs of input values to
+# standard normally distributed pairs of output values
+BoxMuller ← ∩×⟜(°∠×τ:)√×¯2ₙe-:1

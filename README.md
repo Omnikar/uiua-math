@@ -30,3 +30,4 @@ Functions list (see in-code documentation for more detail)
 | `RPFFT` | Rank-polymorphic fast fourier transform |
 | `FFTConvolve` | Rank-polymorphic convolution using fast fourier transform |
 | `DistRand` | Seeded random index from a distribution array |
+| `BoxMuller` | Box-muller transform |
