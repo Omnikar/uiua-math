@@ -24,10 +24,11 @@ Functions list (see in-code documentation for more detail)
 | `ModOrd` | Multiplicative order of N modulo M |
 | `Binom` | Binomial coefficient aka N choose K |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
+| `Erf` | Error function |
+| `DistRand` | Seeded random index from a distribution array |
+| `BoxMuller` | Box-muller transform |
 | `Perms` | Permutations of N items |
 | `Quad` | Po-Shen quadratic solver |
 | `PSet` | Powerset of a list |
 | `RPFFT` | Rank-polymorphic fast fourier transform |
 | `FFTConvolve` | Rank-polymorphic convolution using fast fourier transform |
-| `DistRand` | Seeded random index from a distribution array |
-| `BoxMuller` | Box-muller transform |

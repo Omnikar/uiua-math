@@ -143,28 +143,14 @@ Binom ← /×÷+1⟜-⇡
 # ? N X
 CFrac ← setinv[◌⍥⊃(÷:1◿1)⌊]⊃⧻/(+÷:1)
 
-# -- Misc --
+# -- Probability --
 
-# Permutation indices of N items
-# Indices ? N
-Perms ← ☇1⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
-
-# Po-Shen quadratic solver
-# Returns roots as a list
-# Outputs complex-typed numbers only if the roots are complex
-# ? A B C
-Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
-
-# Powerset of a list
-PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
-
-# Rank-polymorphic fast fourier transform
-RPFFT ← setinv(⍥(⍉fft)⧻△.|°⍥(⍉fft)⧻△.)
-
-# Rank-polymorphic convolution using fast fourier transform
-FFTConvolve ← ⍥R¬↥⊃∩type(
-  ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
-  ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
+# Error function
+Erf ← (
+  ÷:1+1×0.3275911 ⟜(ⁿ:e¯×.) ⌵⟜±
+  :[1.061405429 ¯1.453152027 1.421413741
+    ¯0.284496736 0.254829592]:0
+  ×¬×∧(×⊙+)¤
 )
 
 # Seeded random index from a distribution array
@@ -191,3 +177,27 @@ DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
 BoxMuller ← ∩×⟜(°∠×τ:)√×¯2ₙe-:1
+
+# -- Misc --
+
+# Permutation indices of N items
+# Indices ? N
+Perms ← ☇1⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
+
+# Po-Shen quadratic solver
+# Returns roots as a list
+# Outputs complex-typed numbers only if the roots are complex
+# ? A B C
+Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
+
+# Powerset of a list
+PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
+
+# Rank-polymorphic fast fourier transform
+RPFFT ← setinv(⍥(⍉fft)⧻△.|°⍥(⍉fft)⧻△.)
+
+# Rank-polymorphic convolution using fast fourier transform
+FFTConvolve ← ⍥R¬↥⊃∩type(
+  ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
+  ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
+)
