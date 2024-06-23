@@ -93,8 +93,8 @@ GCD ← ◌⍢⤚◿±⌵
 # Ignores sign
 LCM ← ⌵÷⊃GCD×
 
-BaseEncImpl ↚ ⍉◌∧⊃◿(⊂¤⌊÷)⊞ⁿ⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
-BaseDecImpl ↚ /+×⊞ⁿ⇡⧻,⊙°⍉
+BaseEncImpl ↚ ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
+BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
 # Encode an array of numbers into digits of a given base.
 # Analogous to ⋯ for base 2; the least significant digit is first.
 # No °; see `BaseDec` for decoding from a base.
