@@ -21,7 +21,7 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 # Dot product
 Dot ← /+×
 # Cross product
-Cross ← ↻2-∩(×↻2):,,
+Cross ← ↻2-∩(×↻2)⤙.
 # Matrix product
 # Computes B * A
 # ? A B
@@ -88,7 +88,7 @@ QRot ← setundQRotImpl ⟜QRotImpl (QRotImpl⍜(↘1°⍉)¯)
 
 # Greatest common divisor
 # Ignores sign
-GCD ← ◌⍢⊃◿∘±⌵
+GCD ← ◌⍢⤚◿±⌵
 # Least common multiple
 # Ignores sign
 LCM ← ⌵÷⊃GCD×
@@ -141,7 +141,7 @@ Binom ← /×÷+1⟜-⇡
 # Convert a number X to a continued fraction to N terms.
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-CFrac ← setinv[◌⍥⊃(÷:1◿1)⌊]⊃⧻/(+÷:1)
+CFrac ← setinv[◌⍥⊃(÷⤚◿1)⌊]⊃⧻/(+÷:1)
 
 # -- Probability --
 
@@ -176,7 +176,7 @@ DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
 # Box-Muller transform
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
-BoxMuller ← ∩×⟜(°∠×τ:)√×¯2ₙe-:1
+BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
 
 # -- Misc --
 
@@ -194,7 +194,7 @@ Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
 PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 
 # Rank-polymorphic fast fourier transform
-RPFFT ← setinv(⍥(⍉fft)⧻△.|°⍥(⍉fft)⧻△.)
+RPFFT ← setinv(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
 
 # Rank-polymorphic convolution using fast fourier transform
 FFTConvolve ← ⍥R¬↥⊃∩type(
