@@ -1,3 +1,12 @@
+Import the whole lib
+```uiua
+Math ~ "git: Omnikar/uiua-math"
+```
+or import select functions
+```uiua
+~ "git: Omnikar/uiua-math" ~ QRot Qqp RQuat
+```
+
 Feel free to PR
 
 Functions list (see in-code documentation for more detail)
