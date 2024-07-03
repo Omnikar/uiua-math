@@ -20,9 +20,9 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 
 # Matrix Determinant
 MDet ← |1 ⍣°(¤¤)(/+×≡(MDet⍉⊏)⊙¤⍜⬚0≡°⊚¬°⊏⍉:⍜▽¯⋯2°⊂)
-Sq ←~ ⍜△[.√⊢]
+MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
-MCof ← ⍥¯⊞≠.◿2°⊏Sq≡(MDet Sq≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
+MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
 # Matrix Inverse
 MInv ← ÷⊃(⍤"Matrix has no inverse"⊸≠0MDet|⍉MCof)
 
