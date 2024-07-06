@@ -17,6 +17,9 @@ Functions list (see in-code documentation for more detail)
 | `HMean` | Harmonic mean |
 | `QMean` | Quadratic mean |
 | `Median` | Median |
+| `MDet` | Matrix determinant |
+| `MCof` | Matrix cofactors |
+| `MInv` | Matrix inverse |
 | `Dot` | Dot product |
 | `Cross` | Cross product |
 | `Mmp` | Matrix product |
