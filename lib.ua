@@ -18,6 +18,14 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 
 # -- Matrices/Vectors --
 
+# Matrix Determinant
+MDet ← |1 ⍣°(¤¤)(/+×≡(MDet⍉⊏)⊙¤⍜⬚0≡°⊚¬°⊏⍉:⍜▽¯⋯2°⊂)
+MSquarify ↚ ⍜△[.√⊢]
+# Matrix Cofactors
+MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
+# Matrix Inverse
+MInv ← ÷⊃(⍤"Matrix has no inverse"⊸≠0MDet|⍉MCof)
+
 # Dot product
 Dot ← /+×
 # Cross product
