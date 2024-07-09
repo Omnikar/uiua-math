@@ -140,7 +140,7 @@ BaseDec ← setundBaseDecImpl ⟜BaseDecImpl BaseEncImpl
 ModInv ← ⊗1◿:×⇡,
 # Multiplicative order of N modulo M
 # ? N M
-ModOrd ← ⋊b⊚=1◿:ⁿ⇡,
+ModOrd ← ⊡1⊚=1◿:ⁿ⇡,
 
 # Binomial coefficient aka N choose K
 # ? K N
