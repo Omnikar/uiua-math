@@ -1,3 +1,8 @@
+# uiua-math
+`uiua-math` is a library of mathematical functions for the [Uiua](https://uiua.org) programming language.
+
+The library requires `# Experimental!` due to usage of the `fft` function (for `RPFFT` and `FFTConvolve`) and internal usage of the stack manipulation modifiers `⤙ but` and `⤚ with`.
+
 Import the whole lib
 ```uiua
 Math ~ "git: Omnikar/uiua-math"
