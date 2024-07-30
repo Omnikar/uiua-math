@@ -186,6 +186,10 @@ DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
 # standard normally distributed pairs of output values
 BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
 
+# Generate a 2 dimensional square Gaussian kernel
+# ? Size StandardDeviation
+Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
+
 # -- Misc --
 
 # Permutation indices of N items

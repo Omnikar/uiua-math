@@ -44,6 +44,7 @@ Functions list (see in-code documentation for more detail)
 | `Erf` | Error function |
 | `DistRand` | Seeded random index from a distribution array |
 | `BoxMuller` | Box-muller transform |
+| `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
 | `Perms` | Permutations of N items |
 | `Quad` | Po-Shen quadratic solver |
 | `PSet` | Powerset of a list |
