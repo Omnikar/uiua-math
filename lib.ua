@@ -19,12 +19,29 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 # -- Matrices/Vectors --
 
 # Matrix Determinant
-MDet ← |1 ⍣°(¤¤)(/+×≡(MDet⍉⊏)⊙¤⍜⬚0≡°⊚¬°⊏⍉:⍜▽¯⋯2°⊂)
+MDet ← |1 ⍣(
+  °(¤¤)
+| -∩×⊙::°[⊙⊙⊙∘]♭
+| -∩(/+/×≡↻)⊙⤙∘⊸¯°⊏°3⊸⧻
+| /+×≡(MDet⍉▽)⊙¤⊞≠.°⊏⍉:⍜▽¯⋯2°⊂
+)
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
 MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
+# Augment Matrix with Identity
+MAug ← ≡⊂:⊞=.°⊏
+MInvImpl ↚ (
+  MAug
+  °⊏
+  ∧(
+    ⍜⊏⇌⊟⤙⊙⊙∘⊢⍖⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
+    ⊸⍜⊡(÷⍤"Matrix has no inverse"⊸≠0⊸⊡:)⤙∘
+    ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉))⤙∘
+  )
+  ⍜⍉(↘÷2⊸⧻)
+)
 # Matrix Inverse
-MInv ← ÷⊃(⍤"Matrix has no inverse"⊸≠0MDet|⍉MCof)
+MInv ← setinv(MInvImpl|MInvImpl)
 
 # Dot product
 Dot ← /+×
