@@ -22,35 +22,23 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 
 # -- Matrices/Vectors --
 
-# Matrix Determinant
-MDet ← |1 ⍣(
-  °(¤¤)
-| -∩×⊙::°[⊙⊙⊙∘]♭
-| -∩(/+/×≡↻)⊙⤙∘⊸¯°⊏°3⊸⧻
-| /+×≡(MDet⍉▽)⊙¤⊞≠.°⊏⍉:⍜▽¯⋯2°⊂
-)
-MSquarify ↚ ⍜△[.√⊢]
-# Matrix Cofactors
-MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
-# Augment Matrix with Identity
-MAug ← ≡⊂:⊞=.°⊏
 # ? SwappedRows Pivot 
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
-  ⍜⊏⇌ ⊃⊙⊙∘(^!) ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘(^!) ⍤.≥ε⊸⌵) ⟜⊡
-  ⊸⍜⊡(÷⊸⊡:)⤙∘
-  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉))⤙∘
+  ⍜⊏⇌ ⊃⊙⊙∘^! ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^! ⍤.≥ε⊸⌵) ⟜⊡
+  ⊸⍜⊡(÷⊸⊡:),
+  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉)),
 )°⊏
 # Matrix Determinant
 MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
-# Preform Gauss-Jordan Elimination
+# Perform Gauss-Jordan elimination
 Mgje ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
-
-MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" MAug
-
+MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
 # Matrix Inverse
 MInv ← setinv(MInvImpl|MInvImpl)
-
+MSquarify ↚ ⍜△[.√⊢]
+# Matrix Cofactors
+MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
 # Dot product
 Dot ← /+×
 # Cross product
