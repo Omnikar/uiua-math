@@ -3,6 +3,10 @@
 
 # Extract real
 R ↚ ◌°ℂ
+# Floating point epsilon
+ε ← 2.2204460492503131E-16
+# ? ErrorMsg
+Throw! ↚ ⍤^!0
 
 # -- Averages --
 
@@ -30,16 +34,20 @@ MSquarify ↚ ⍜△[.√⊢]
 MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
 # Augment Matrix with Identity
 MAug ← ≡⊂:⊞=.°⊏
-MInvImpl ↚ (
-  MAug
-  °⊏
-  ∧(
-    ⍜⊏⇌⊟⤙⊙⊙∘⊢⍖⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
-    ⊸⍜⊡(÷⍤"Matrix has no inverse"⊸≠0⊸⊡:)⤙∘
-    ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉))⤙∘
-  )
-  ⍜⍉(↘÷2⊸⧻)
-)
+# ? SwappedRows Pivot 
+GaussEliminate‼ ↚ ∧(
+  ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
+  ⍜⊏⇌ ⊃⊙⊙∘(^!) ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘(^!) ⍤.≥ε⊸⌵) ⟜⊡
+  ⊸⍜⊡(÷⊸⊡:)⤙∘
+  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉))⤙∘
+)°⊏
+# Matrix Determinant
+MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
+# Preform Gauss-Jordan Elimination
+Mgje ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
+
+MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" MAug
+
 # Matrix Inverse
 MInv ← setinv(MInvImpl|MInvImpl)
 

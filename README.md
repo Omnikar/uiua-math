@@ -23,6 +23,8 @@ Functions list (see in-code documentation for more detail)
 | `QMean` | Quadratic mean |
 | `Median` | Median |
 | `MDet` | Matrix determinant |
+| `Mgje` | Guass-Jordan Elimination |
+| `MAug` | Matrix augmented with Identity |
 | `MCof` | Matrix cofactors |
 | `MInv` | Matrix inverse |
 | `Dot` | Dot product |
