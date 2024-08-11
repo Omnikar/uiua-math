@@ -5,11 +5,11 @@ The library requires `# Experimental!` due to usage of the `fft` function (for `
 
 Import the whole lib
 ```uiua
-Math ~ "git: Omnikar/uiua-math"
+Math ~ "git: github.com/Omnikar/uiua-math"
 ```
 or import select functions
 ```uiua
-~ "git: Omnikar/uiua-math" ~ QRot Qqp RQuat
+~ "git: github.com/Omnikar/uiua-math" ~ QRot Qqp RQuat
 ```
 
 Feel free to PR
