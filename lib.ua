@@ -3,6 +3,10 @@
 
 # Extract real
 R ↚ ◌°ℂ
+# Floating point epsilon
+ε ← 2.2204460492503131E-16
+# ? ErrorMsg
+Throw! ↚ ⍤^!0
 
 # -- Averages --
 
@@ -18,14 +22,23 @@ Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
 
 # -- Matrices/Vectors --
 
+# ? SwappedRows Pivot 
+GaussEliminate‼ ↚ ∧(
+  ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
+  ⍜⊏⇌ ⊃⊙⊙∘^! ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^! ⍤.≥ε⊸⌵) ⟜⊡
+  ⊸⍜⊡(÷⊸⊡:),
+  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚⊃⋅∘⍉)),
+)°⊏
 # Matrix Determinant
-MDet ← |1 ⍣°(¤¤)(/+×≡(MDet⍉⊏)⊙¤⍜⬚0≡°⊚¬°⊏⍉:⍜▽¯⋯2°⊂)
+MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
+# Perform Gauss-Jordan elimination
+Mgje ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
+MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
+# Matrix Inverse
+MInv ← setinv(MInvImpl|MInvImpl)
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
 MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
-# Matrix Inverse
-MInv ← ÷⊃(⍤"Matrix has no inverse"⊸≠0MDet|⍉MCof)
-
 # Dot product
 Dot ← /+×
 # Cross product
