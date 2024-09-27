@@ -63,8 +63,7 @@ QqpMask ↚ [
   1_2_3_4
   2_¯1_4_¯3
   3_¯4_¯1_2
-  4_3_¯2_¯1
-]
+  4_3_¯2_¯1]
 # Quaternion product
 # Computes P * Q for quaternion arrays P and Q.
 # Semi-pervasive; the last axis of the inputs must be of length 4,
@@ -196,7 +195,7 @@ Erf ← (
 # ## [2 3 2 0 1 3 1 1 1 3]
 # ```
 # NextSeed Num ? Dist Seed
-DistRand ← ⊙(⊢⊚>)gen:⍜♭\+
+DistRand ← ⊙(⊢⊚>)gen[]:⍜♭\+
 
 # Box-Muller transform
 # Converts uniformly distributed pairs of input values to
