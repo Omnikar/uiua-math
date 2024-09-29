@@ -6,7 +6,7 @@ R ↚ ◌°ℂ
 # Floating point epsilon
 ε ← 2.2204460492503131e-16
 # ? ErrorMsg
-Throw! ↚ ⍤^!0
+Throw! ↚ ⍤^0 0
 
 # -- Averages --
 
@@ -18,14 +18,16 @@ GMean ← ⁿ÷:1⧻⟜/×
 HMean ← ÷/+⟜⧻÷:1
 # Quadratic mean
 QMean ← √÷⧻⟜/+°√
-Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⧻.⊏⍏.
+# Median
+# TODO: O(n) median algorithm?
+Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⊏⊸⍏
 
 # -- Matrices/Vectors --
 
 # ? SwappedRows Pivot
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
-  ⍜⊏⇌ ⊃⊙⊙∘^! ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^! ⍤.≥ε⊸⌵) ⟜⊡
+  ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
   ⊸⍜⊡(÷⊸⊡:),
   ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚˜⊙⍉)),
 )°⊏
@@ -34,7 +36,7 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
+Mgje     ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
 MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
 # Matrix Inverse
 MInv ← setinv(MInvImpl|MInvImpl)
@@ -93,7 +95,8 @@ Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 # vectors, see `QRot`.
 # ? θ U
 RQuat ← ⍜⊙°⍉⊂⊙×:°∠÷2
-QRotImpl ↚ ⍜⊙°⍉↘1⍥Qqp2⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
+# Quaternion rotation implementation
+QRotImpl ↚ ⍜⊙°⍉↘1⍥₂Qqp⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # Rotate a 3D vector array using a quaternion array.
 # To create rotation quaternions to use with `QRot`, see `RQuat`.
 # Expects a quaternion array Q and a 3D vector array V.
