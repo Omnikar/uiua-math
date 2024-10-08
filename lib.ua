@@ -176,29 +176,32 @@ CFrac ← setinv[◌⍥⊃(÷⤚◿1)⌊]⊃⧻/(+÷:1)
 Erf ← (
   ÷:1+1×0.3275911 ⟜(ⁿ:e¯×.) ⌵⟜±
   :[1.061405429 ¯1.453152027 1.421413741
-    ¯0.284496736 0.254829592]:0
+    ¯0.284496736 0.254829592
+  ]:0
   ×¬×∧(×⊙+)¤
 )
 
-# Seeded random index from a distribution array
-# Given a seed and a probability distribution array of any rank
-# containing numbers that sum to 1, `DistRand` returns a deep
-# index in the distribution array chosen randomly based on the
-# seed and distribution, and returns the next seed to be used.
+# Seeded random indices from a distribution array
+# Given a seed, a shape, and a probability distribution array
+# of any rank containing numbers that sum to 1, `DistRand` returns
+# an array of deep indices into the distribution arrays, chosen
+# randomly weighted by the distribution. The generated random
+# indices will fill the shape given to the function. If the
+# distribution array is rank 1, the output will have the shape
+# given. If the distribution array is rank >1, the output will
+# have a shape equal to the shape given suffixed with the rank of
+# the distribution array.
 #
-# `DistRand` can be used with `⟜` to keep the distribution for
-# subsequent generations, so `⟜DistRand` can be chained to use
-# the same distribution and successive seeds.
 # ```uiua
-# # Start with a seed of 8
-# [0.1 0.4 0.3 0.2] 8
-# # Generate 10 random indices using the same distribution,
-# # and pop the distribution and seed afterward
-# [◌◌⍥⟜DistRand10]
-# ## [2 3 2 0 1 3 1 1 1 3]
+# # Generate random indices in the shape 2_3 with a seed of 8
+# DistRand [0.1 0.4 0.3 0.2] 2_3 8
+# ## ╭─
+# ## ╷ 1 2 3
+# ##   2 1 2
+# ##         ╯
 # ```
-# NextSeed Num ? Dist Seed
-DistRand ← ⊙(⊢⊚>)gen[]:⍜♭\+
+# Indices ? Distribution Shape Seed
+DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+
 
 # Box-Muller transform
 # Converts uniformly distributed pairs of input values to

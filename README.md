@@ -43,7 +43,7 @@ Functions list (see in-code documentation for more detail)
 | `Binom` | Binomial coefficient aka N choose K |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
 | `Erf` | Error function |
-| `DistRand` | Seeded random index from a distribution array |
+| `DistRand` | Seeded random indices from a distribution array |
 | `BoxMuller` | Box-muller transform |
 | `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
 | `Perms` | Permutations of N items |
