@@ -39,7 +39,7 @@ MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
 Mgje     ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
 MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
 # Matrix Inverse
-MInv ← setinv(MInvImpl|MInvImpl)
+MInv ← ⌅(MInvImpl|MInvImpl)
 
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
@@ -109,7 +109,7 @@ QRotImpl ↚ ⍜⊙°⍉↘1⍥₂Qqp⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # ```
 # `QRot` can be used with ⍜ to undo the rotations afterward.
 # ? Q V
-QRot ← setundQRotImpl ⟜QRotImpl (QRotImpl⍜(↘1°⍉)¯)
+QRot ← ⌅(QRotImpl|⟜QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 
 # -- Number theory --
 
@@ -138,7 +138,7 @@ BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
 # ##   4 1 0
 # ##         ╯
 # ```
-BaseEnc ← setundBaseEncImpl ⟜BaseEncImpl BaseDecImpl
+BaseEnc ← ⌅(BaseEncImpl|⟜BaseEncImpl|BaseDecImpl)
 # Decode an array of encoded lists of digits of a given base.
 # Analogous to °⋯ for base 2; the least significant digit is first.
 # See `BaseEnc` for encoding to a base.
@@ -152,7 +152,7 @@ BaseEnc ← setundBaseEncImpl ⟜BaseEncImpl BaseDecImpl
 # ##   8 9
 # ##       ╯
 # ```
-BaseDec ← setundBaseDecImpl ⟜BaseDecImpl BaseEncImpl
+BaseDec ← ⌅(BaseDecImpl|⟜BaseDecImpl|BaseEncImpl)
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
@@ -168,7 +168,7 @@ Binom ← /×÷+1⟜-⇡
 # Convert a number X to a continued fraction to N terms.
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-CFrac ← setinv[◌⍥⊃(÷⤚◿1)⌊]⊃⧻/(+÷:1)
+CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
 
 # -- Probability --
 
@@ -228,7 +228,7 @@ Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
 PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 
 # Rank-polymorphic fast fourier transform
-RPFFT ← setinv(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
+RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
 
 # Rank-polymorphic convolution using fast fourier transform
 FFTConvolve ← ⍥R¬↥⊃∩type(
