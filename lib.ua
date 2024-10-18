@@ -231,7 +231,7 @@ PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
 
 # Rank-polymorphic convolution using fast fourier transform
-FFTConvolve ← ⍥R¬↥⊃∩type(
+FFTConvolve ← ⍥R=0↥⊃∩type(
   ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
   ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
 )
