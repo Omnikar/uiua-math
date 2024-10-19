@@ -22,6 +22,8 @@ Functions list (see in-code documentation for more detail)
 | `HMean` | Harmonic mean |
 | `QMean` | Quadratic mean |
 | `Median` | Median |
+| `Var` | Variance |
+| `Stdev` | Standard deviation |
 | `MDet` | Matrix determinant |
 | `Mgje` | Matrix Gauss-Jordan Elimination |
 | `MCof` | Matrix cofactors |

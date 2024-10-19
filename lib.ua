@@ -22,6 +22,11 @@ QMean ← √÷⧻⟜/+°√
 # TODO: O(n) median algorithm?
 Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⊏⊸⍏
 
+# Variance
+Var ← -°√∩÷∩⊃⧻/+⟜°√
+# Standard deviation
+Stdev ← √Var
+
 # -- Matrices/Vectors --
 
 # ? SwappedRows Pivot
