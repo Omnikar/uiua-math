@@ -1,7 +1,7 @@
 # uiua-math
 `uiua-math` is a library of mathematical functions for the [Uiua](https://uiua.org) programming language.
 
-The library requires `# Experimental!` due to usage of the `fft` function (for `RPFFT` and `FFTConvolve`) and internal usage of the stack manipulation modifiers `⤙ but` and `⤚ with`.
+The library requires `# Experimental!` due to usage of the `fft` function (for `RPFFT` and `FFTConvolve`) and internal usage of experimental stack manipulation modifiers.
 
 Import the whole lib
 ```uiua
@@ -46,7 +46,7 @@ Functions list (see in-code documentation for more detail)
 | `CFrac` | Convert a number X to a continued fraction to N terms |
 | `Erf` | Error function |
 | `DistRand` | Seeded random indices from a distribution array |
-| `BoxMuller` | Box-muller transform |
+| `BoxMuller` | Box-muller transform: generate pairs of normally distributed values given pairs of uniformly distributed values |
 | `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
 | `Perms` | Permutations of N items |
 | `Quad` | Po-Shen quadratic solver |
