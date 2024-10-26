@@ -5,8 +5,6 @@
 R ↚ ◌°ℂ
 # Floating point epsilon
 ε ← 2.2204460492503131e-16
-# ? ErrorMsg
-Throw! ↚ ⍤^0 0
 
 # -- Averages --
 
@@ -41,10 +39,9 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje     ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
-MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
+Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 # Matrix Inverse
-MInv ← ⌅(MInvImpl|MInvImpl)
+MInv ← ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ≡⊂:⊞=.°⊏)
 
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
@@ -57,14 +54,20 @@ Cross ← ↻2-∩(×↻2)⤙.
 # Matrix product
 # Computes B * A
 # ? A B
-Mmp ← ⍜⍉⊞Dot
+Mmp ← ⌅(⍜⍉⊞Dot|⍜⍉⊞Dot MInv)
 # Matrix-vector product
 # Computes M * V where V is represented as a 1D list of numbers
 # ? M V
-Mvp ← Dot⍉
+Mvp ← ⌅(Dot⍉|Dot⍉MInv)
 # Matrix power
 # ? P M
 Mpow ← ⊙◌⍥(⊞Dot,⍉):⊞=.⇡⧻,
+
+┌─╴test
+  ⍤⤙≍ [3_7 ¯6_2] ⌝Mmp [1_0 0_1] [3_7 ¯6_2]
+  ⍤⤙≍ [1_0 0_1] ⁅ ⌝Mmp . [1_2 3_4]
+  ⍤⤙≍ 3 ⁅ MDet [5_6 2_3]
+└─╴
 
 QqpMask ↚ [
   1_2_3_4
