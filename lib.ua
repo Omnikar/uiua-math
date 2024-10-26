@@ -114,7 +114,12 @@ QRotImpl ↚ ⍜⊙°⍉↘1⍥₂Qqp⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # ```
 # `QRot` can be used with ⍜ to undo the rotations afterward.
 # ? Q V
-QRot ← ⌅(QRotImpl|⟜QRotImpl|QRotImpl⍜(↘1°⍉)¯)
+QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
+
+┌─╴test
+  ⍤⤙≍ [¯48_6_6_12 ¯120_24_60_48] Qqp [1_2_3_4 2_4_6_8] [1_3_5_7 5_6_7_8]
+  ⍤⤙≍ [¯2_3_0 ¯3_1_2] ⁅ QRot ¤:[3_2_0 1_3_2] RQuat η 0_0_1
+└─╴
 
 # -- Number theory --
 
@@ -125,16 +130,18 @@ GCD ← ◌⍢⤚◿±⌵
 # Ignores sign
 LCM ← ⌵÷⊃GCD×
 
-BaseEncImpl ↚ ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
-BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
+┌─╴test
+  ⍤⤙≍ 6 GCD 18 24
+  ⍤⤙≍ 24 LCM 8 12
+└─╴
+
 # Encode an array of numbers into digits of a given base.
 # Analogous to ⋯ for base 2; the least significant digit is first.
-# No °; see `BaseDec` for decoding from a base.
 #
-# `BaseEnc` allows multiple bases as input.
+# `Base` allows multiple bases as input.
 # ```uiua
 # # Encodes 6 in base 2, 7 in base 3, 8 in base 4, and 9 in base 5.
-# BaseEnc [2_3 4_5] [6_7 8_9]
+# Base [2_3 4_5] [6_7 8_9]
 # ## ╭─
 # ## ╷ 0 1 1
 # ## ╷ 1 2 0
@@ -143,21 +150,24 @@ BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
 # ##   4 1 0
 # ##         ╯
 # ```
-BaseEnc ← ⌅(BaseEncImpl|⟜BaseEncImpl|BaseDecImpl)
-# Decode an array of encoded lists of digits of a given base.
-# Analogous to °⋯ for base 2; the least significant digit is first.
-# See `BaseEnc` for encoding to a base.
 #
-# `BaseDec` allows multiple bases as input.
+# You can use `⌝Base` to decode from a base/bases.
 # ```uiua
 # # Decodes 6 in base 2, 7 in base 3, 8 in base 4, and 9 in base 5.
-# BaseDecImpl [2_3 4_5] [[0_1_1 1_2_0] [0_2_0 4_1_0]]
+# ⌝Base [2_3 4_5] [[0_1_1 1_2_0] [0_2_0 4_1_0]]
 # ## ╭─
 # ## ╷ 6 7
 # ##   8 9
 # ##       ╯
 # ```
-BaseDec ← ⌅(BaseDecImpl|⟜BaseDecImpl|BaseEncImpl)
+Base ← ⌅(⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]|/+×ⁿ⊙¤⇡⧻,⊙°⍉)
+
+┌─╴test
+  ⍤⤙≍ [[2_2 1_0][3_1 1_1]] Base 5 [12_1 8_6]
+  ⍤⤙≍ [[0_1_1 1_2_0][0_2_0 4_1_0]] Base [2_3 4_5] [6_7 8_9]
+  ⍤⤙≍ [12_1 8_6] ⌝Base 5 [[2_2 1_0][3_1 1_1]]
+  ⍤⤙≍ [6_7 8_9] ⌝Base [2_3 4_5] [[0_1_1 1_2_0][0_2_0 4_1_0]]
+└─╴
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
@@ -165,6 +175,10 @@ ModInv ← ⊗1◿:×⇡,
 # Multiplicative order of N modulo M
 # ? N M
 ModOrd ← ⊡1⊚=1◿:ⁿ⇡,
+
+┌─╴test
+  ⍤⤙≍ 2 ModInv 4 7
+└─╴
 
 # Binomial coefficient aka N choose K
 # ? K N
@@ -185,6 +199,14 @@ Erf ← (
   ]:0
   ×¬×∧(×⊙+)¤
 )
+
+┌─╴test
+  ⍤⤙≍ 0 Erf 0
+  ⍤⤙≍ 1 Erf 1000
+  ⍤⤙≍ ¯1 Erf ¯1000
+  ⍤⤙(<1e-6⌵-) 0.5204998778130465 Erf 0.5
+  ⍤⤙(<1e-6⌵-) ¯0.5204998778130465 Erf ¯0.5
+└─╴
 
 # Seeded random indices from a distribution array
 # Given a seed, a shape, and a probability distribution array
