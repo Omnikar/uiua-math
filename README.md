@@ -38,8 +38,7 @@ Functions list (see in-code documentation for more detail)
 | `QRot` | Rotate a 3D vector array using a quaternion array |
 | `GCD` | Greatest common divisor |
 | `LCM` | Least common multiple |
-| `BaseEnc` | Encode an array of numbers into digits of a given base |
-| `BaseDec` | Decode an array of encoded lists of digits of a given base |
+| `Base` | Encode an array of numbers into digits of a given base |
 | `ModInv` | Inverse of N modulo M |
 | `ModOrd` | Multiplicative order of N modulo M |
 | `Binom` | Binomial coefficient aka N choose K |
