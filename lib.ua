@@ -5,8 +5,6 @@
 R ↚ ◌°ℂ
 # Floating point epsilon
 ε ← 2.2204460492503131e-16
-# ? ErrorMsg
-Throw! ↚ ⍤^0 0
 
 # -- Averages --
 
@@ -41,10 +39,9 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje     ← ⍣GaussEliminate‼()()⟜Throw!"Elimination cannot be completed"
-MInvImpl ↚ ⍜⍉(↘÷2⊸⧻) ⍣Mgje⟜Throw!"Matrix has no inverse" ≡⊂:⊞=.°⊏
+Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 # Matrix Inverse
-MInv ← ⌅(MInvImpl|MInvImpl)
+MInv ← ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ≡⊂:⊞=.°⊏)
 
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
@@ -57,11 +54,11 @@ Cross ← ↻2-∩(×↻2)⤙.
 # Matrix product
 # Computes B * A
 # ? A B
-Mmp ← ⍜⍉⊞Dot
+Mmp ← ⌅(⍜⍉⊞Dot|⍜⍉⊞Dot MInv)
 # Matrix-vector product
 # Computes M * V where V is represented as a 1D list of numbers
 # ? M V
-Mvp ← Dot⍉
+Mvp ← ⌅(Dot⍉|Dot⍉MInv)
 # Matrix power
 # ? P M
 Mpow ← ⊙◌⍥(⊞Dot,⍉):⊞=.⇡⧻,
@@ -135,8 +132,6 @@ LCM ← ⌵÷⊃GCD×
   ⍤⤙≍ 24 LCM 8 12
 └─╴
 
-BaseEncImpl ↚ ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
-BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
 # Encode an array of numbers into digits of a given base.
 # Analogous to ⋯ for base 2; the least significant digit is first.
 #
@@ -156,13 +151,15 @@ BaseDecImpl ↚ /+×ⁿ⊙¤⇡⧻,⊙°⍉
 # You can use `⌝Base` to decode from a base/bases.
 # ```uiua
 # # Decodes 6 in base 2, 7 in base 3, 8 in base 4, and 9 in base 5.
-# BaseDecImpl [2_3 4_5] [[0_1_1 1_2_0] [0_2_0 4_1_0]]
+# ⌝Base [2_3 4_5] [[0_1_1 1_2_0] [0_2_0 4_1_0]]
 # ## ╭─
 # ## ╷ 6 7
 # ##   8 9
 # ##       ╯
 # ```
-Base ← ⌅(BaseEncImpl|BaseDecImpl)
+Base ← ⌅(
+  ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
+| /+×ⁿ⊙¤⇡⧻,⊙°⍉)
 
 ┌─╴test
   ⍤⤙≍ [[2_2 1_0][3_1 1_1]] Base 5 [12_1 8_6]
