@@ -126,6 +126,9 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 
 # -- Number theory --
 
+# Pervasive factorial
+Fact ← /×°⍉+1⬚0∵⇡
+
 # Greatest common divisor
 # Ignores sign
 GCD ← ◌⍢⤚◿±⌵
@@ -243,6 +246,26 @@ BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
 Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
+
+# ? p n X
+BinomPdf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
+# ? p n X
+BinomCdf ← /+BinomPdf⊓∩¤(⇡+1)
+
+# ? p X
+GeomPdf ← ×⟜(ⁿ-1:¬)
+# ? p X
+GeomCdf ← ⍜¬˜ⁿ
+
+# ? λ X
+PoissonPdf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
+# ? λ X
+PoissonCdf ← /+PoissonPdf⊓¤(⇡+1)
+
+# ? σ μ X
+NormalPdf ← ÷⊃(×√×2π|ⁿ⊙e÷2¯°√÷⊙-)
+# ? σ μ X
+NormalCdf ← ÷2+1Erf÷×√2⊙-
 
 # -- Misc --
 
