@@ -252,8 +252,10 @@ BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
 # ? p n X
 BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 
+# Number of failures before the first success
 # ? p X
 GeomPmf ← ×⟜(ⁿ-1:¬)
+# Number of failures before the first success
 # ? p X
 GeomCmf ← ⍜¬˜ⁿ
 

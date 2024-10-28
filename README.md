@@ -52,8 +52,8 @@ Functions list (see in-code documentation for more detail)
 | `BinomCmf` | Cumulative Binomial Distribution |
 | `PoissonPmf` | Poisson Distribution |
 | `PoissonCmf` | Cumulative Poisson Distribution |
-| `GeomPmf` | Geometric Distribution |
-| `GeomCmf` | Cumulative Geometric Distribution |
+| `GeomPmf` | Geometric Distribution (0-indexed) |
+| `GeomCmf` | Cumulative Geometric Distribution (0-indexed) |
 | `NormalPdf` | Normal Distribution |
 | `NormalCdf` | Cumulative Normal Distribution |
 | `Perms` | Permutations of N items |
