@@ -36,7 +36,7 @@ Functions list (see in-code documentation for more detail)
 | `Qqp` | Quaternion product |
 | `RQuat` | Create 3D rotation quaternions |
 | `QRot` | Rotate a 3D vector array using a quaternion array |
-| `Fact` | Factorial of n (n!) |
+| `Fact` | Factorial of n |
 | `GCD` | Greatest common divisor |
 | `LCM` | Least common multiple |
 | `Base` | Encode an array of numbers into digits of a given base |
@@ -48,14 +48,14 @@ Functions list (see in-code documentation for more detail)
 | `DistRand` | Seeded random indices from a distribution array |
 | `BoxMuller` | Box-muller transform: generate pairs of normally distributed values given pairs of uniformly distributed values |
 | `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
-| `BinomPmf` | Binomial Distribution |
-| `BinomCmf` | Cumulative Binomial Distribution |
-| `PoissonPmf` | Poisson Distribution |
-| `PoissonCmf` | Cumulative Poisson Distribution |
-| `GeomPmf` | Geometric Distribution (0-indexed) |
-| `GeomCmf` | Cumulative Geometric Distribution (0-indexed) |
-| `NormalPdf` | Normal Distribution |
-| `NormalCdf` | Cumulative Normal Distribution |
+| `BinomPmf` | Binomial distribution |
+| `BinomCmf` | Cumulative binomial distribution |
+| `PoissonPmf` | Poisson distribution |
+| `PoissonCmf` | Cumulative poisson distribution |
+| `GeomPmf` | Geometric distribution (0-indexed) |
+| `GeomCmf` | Cumulative geometric distribution (0-indexed) |
+| `NormalPdf` | Normal distribution |
+| `NormalCdf` | Cumulative normal distribution |
 | `Perms` | Permutations of N items |
 | `Quad` | Po-Shen quadratic solver |
 | `PSet` | Powerset of a list |
