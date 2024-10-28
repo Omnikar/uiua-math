@@ -248,19 +248,19 @@ BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
 Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
 
 # ? p n X
-BinomPdf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
+BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
 # ? p n X
-BinomCdf ← /+BinomPdf⊓∩¤(⇡+1)
+BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 
 # ? p X
-GeomPdf ← ×⟜(ⁿ-1:¬)
+GeomPmf ← ×⟜(ⁿ-1:¬)
 # ? p X
-GeomCdf ← ⍜¬˜ⁿ
+GeomCmf ← ⍜¬˜ⁿ
 
 # ? λ X
-PoissonPdf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
+PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
 # ? λ X
-PoissonCdf ← /+PoissonPdf⊓¤(⇡+1)
+PoissonCmf ← /+PoissonPmf⊓¤(⇡+1)
 
 # ? σ μ X
 NormalPdf ← ÷⊃(×√×2π|ⁿ⊙e÷2¯°√÷⊙-)

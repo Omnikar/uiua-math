@@ -48,12 +48,12 @@ Functions list (see in-code documentation for more detail)
 | `DistRand` | Seeded random indices from a distribution array |
 | `BoxMuller` | Box-muller transform: generate pairs of normally distributed values given pairs of uniformly distributed values |
 | `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
-| `BinomPdf` | Binomial Distribution |
-| `BinomCdf` | Cumulative Binomial Distribution |
-| `PoissonPdf` | Poisson Distribution |
-| `PoissonCdf` | Cumulative Poisson Distribution |
-| `GeomPdf` | Geometric Distribution |
-| `GeomCdf` | Cumulative Geometric Distribution |
+| `BinomPmf` | Binomial Distribution |
+| `BinomCmf` | Cumulative Binomial Distribution |
+| `PoissonPmf` | Poisson Distribution |
+| `PoissonCmf` | Cumulative Poisson Distribution |
+| `GeomPmf` | Geometric Distribution |
+| `GeomCmf` | Cumulative Geometric Distribution |
 | `NormalPdf` | Normal Distribution |
 | `NormalCdf` | Cumulative Normal Distribution |
 | `Perms` | Permutations of N items |
