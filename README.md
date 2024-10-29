@@ -50,10 +50,10 @@ Functions list (see in-code documentation for more detail)
 | `Gaussian` | Generate a 2 dimensional square Gaussian kernel |
 | `BinomPmf` | Binomial distribution |
 | `BinomCmf` | Cumulative binomial distribution |
-| `PoissonPmf` | Poisson distribution |
-| `PoissonCmf` | Cumulative poisson distribution |
 | `GeomPmf` | Geometric distribution (0-indexed) |
 | `GeomCmf` | Cumulative geometric distribution (0-indexed) |
+| `PoissonPmf` | Poisson distribution |
+| `PoissonCmf` | Cumulative Poisson distribution |
 | `NormalPdf` | Normal distribution |
 | `NormalCdf` | Cumulative normal distribution |
 | `Perms` | Permutations of N items |
