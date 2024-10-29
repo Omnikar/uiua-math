@@ -253,6 +253,7 @@ Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
 BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
 # Cumulative binomial distribution
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
+# **NOTE:** This function only accepts scalars for X. Use `each` or `rows` if multiple X values are desired
 # ? p n X
 BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 
