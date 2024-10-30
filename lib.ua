@@ -126,6 +126,9 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 
 # -- Number theory --
 
+# Pervasive factorial
+Fact ← /×°⍉+1⬚0∵⇡
+
 # Greatest common divisor
 # Ignores sign
 GCD ← ◌⍢⤚◿±⌵
@@ -243,6 +246,43 @@ BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
 Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
+
+# Binomial distribution
+# Probability that n Bernoulli trials each with success probability p will amount to X successes
+# ? p n X
+BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
+# Cumulative binomial distribution
+# Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
+# **NOTE:** This function only accepts scalars for X. Use `each` or `rows` if multiple X values are desired
+# ? p n X
+BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
+
+# Geometric distribution
+# Probability of X failures before the first success of repeated trials with success probability p
+# ? p X
+GeomPmf ← ×˜ⁿ¬’
+# Cumulative geometric distribution
+# Probability of X or fewer failures before the first success of repeated trials with success probability p
+# ? p X
+GeomCmf ← ⍜¬˜ⁿ⊙(+1)
+
+# Poisson distribution
+# Probability of X occurrences of an unlikely event over many trials with expected value λ
+# ? λ X
+PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
+# Cumulative Poisson distribution
+# Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
+# ? λ X
+PoissonCmf ← /+PoissonPmf⊓¤(⇡+1)
+
+# Normal distribution
+# Probability density of a gaussian/bell curve with mean μ and standard deviation σ
+# ? σ μ X
+NormalPdf ← ÷⊃(×√×2π|ⁿ⊙e÷2¯°√÷⊙-)
+# Cumulative normal distribution
+# Probability that a normally distributed random variable with mean μ and standard deviation σ is less than X
+# ? σ μ X
+NormalCdf ← ÷2+1Erf÷×√2⊙-
 
 # -- Misc --
 
