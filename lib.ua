@@ -241,7 +241,7 @@ DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+
 # Box-Muller transform
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
-BoxMuller ← ∩×⤙°∠×τ:√×¯2ₙe¬
+BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2ₙe¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
