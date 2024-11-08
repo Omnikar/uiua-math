@@ -129,6 +129,36 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 # Pervasive factorial
 Fact ← /×°⍉+1⬚0∵⇡
 
+# Gamma function
+# Γ(z)
+Gamma ← (
+  -1/2 ⟜(
+    -1
+    # From https://en.wikipedia.org/wiki/Lanczos_approximation
+    °⊏[
+      0.9999999999999999
+      1975.3739023578853
+      ¯4397.382392792243
+      3462.6328459862716
+      ¯1156.9851431631168
+      154.53815050252774
+      ¯6.253671612368916
+      0.034642762454736804
+      ¯7.477617197444297e-7
+      6.304125382185226e-8
+      ¯2.7405717035683877e-8
+      4.048694881756761e-9
+    ]
+    /+÷⍜⊢⋅1≡+⊙¤⊙:)
+  ××× √τ ⁿ¯⊙e ⤙ⁿ ⤙+ 8 # g
+)
+
+┌─╴test
+  ⍤⤙(<1e¯10 ⌵-) √π Gamma 1/2
+  ⍤⤙(<1e¯10 ⌵-) 24 Gamma 5
+  ⍤⤙(<1e¯10 ⌵-) ℂ¯0.09161772311294437 0.024480267015440246 Gamma ℂ.¯√2
+└─╴
+
 # Greatest common divisor
 # Ignores sign
 GCD ← ◌⍢⤚◿±⌵
@@ -278,7 +308,7 @@ PoissonCmf ← /+PoissonPmf⊓¤(⇡+1)
 # Normal distribution
 # Probability density of a gaussian/bell curve with mean μ and standard deviation σ
 # ? σ μ X
-NormalPdf ← ÷⊃(×√×2π|ⁿ⊙e÷2¯°√÷⊙-)
+NormalPdf ← ÷⊃(×√τ|ⁿ⊙e÷2¯°√÷⊙-)
 # Cumulative normal distribution
 # Probability that a normally distributed random variable with mean μ and standard deviation σ is less than X
 # ? σ μ X

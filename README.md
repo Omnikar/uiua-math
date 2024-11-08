@@ -37,6 +37,7 @@ Functions list (see in-code documentation for more detail)
 | `RQuat` | Create 3D rotation quaternions |
 | `QRot` | Rotate a 3D vector array using a quaternion array |
 | `Fact` | Pervasive factorial |
+| `Gamma` | Gamma function |
 | `GCD` | Greatest common divisor |
 | `LCM` | Least common multiple |
 | `Base` | Encode an array of numbers into digits of a given base |
