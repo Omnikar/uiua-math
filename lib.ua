@@ -52,10 +52,12 @@ Dot ← /+×
 # Cross product
 Cross ← ↻2-∩(×↻2)⤙.
 # Matrix product
+#
 # Computes B * A
 # ? A B
 Mmp ← ⌅(⍜⍉⊞Dot|⍜⍉⊞Dot MInv)
 # Matrix-vector product
+#
 # Computes M * V where V is represented as a 1D list of numbers
 # ? M V
 Mvp ← ⌅(Dot⍉|Dot⍉MInv)
@@ -75,7 +77,9 @@ QqpMask ↚ [
   3_¯4_¯1_2
   4_3_¯2_¯1]
 # Quaternion product
+#
 # Computes P * Q for quaternion arrays P and Q.
+#
 # Semi-pervasive; the last axis of the inputs must be of length 4,
 # and will be interpreted as the input quaternions' real, i, j, and k.
 # ```uiua
@@ -89,9 +93,12 @@ QqpMask ↚ [
 # ? P Q
 Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 # Create 3D rotation quaternions.
+#
 # Expects an angle array θ and a unit vector axis array U.
+#
 # Semi-pervasive; the unit vector array must have one extra trailing
 # axis compared to the angle array, and that axis must be length 3.
+#
 # For each angle-vector pair, computes cos(θ/2) + Usin(θ/2).
 # ```uiua
 # # Creates two rotation quaternions:
@@ -106,10 +113,14 @@ RQuat ← ⍜⊙°⍉⊂⊙×:°∠÷2
 # Quaternion rotation implementation
 QRotImpl ↚ ⍜⊙°⍉↘1⍥₂Qqp⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # Rotate a 3D vector array using a quaternion array.
+#
 # To create rotation quaternions to use with `QRot`, see `RQuat`.
+#
 # Expects a quaternion array Q and a 3D vector array V.
+#
 # Semi-pervasive; the input arrays should have matching shapes aside
 # from the final axis, which should be of lengths 4 and 3 respectively.
+#
 # For each quaternion-vector pair, computes Q * V * Q'.
 # ```uiua
 # RQuat η 0_0_1        # Create a rotation by η radians about 0_0_1
@@ -160,9 +171,11 @@ Gamma ← (
 └─╴
 
 # Greatest common divisor
+#
 # Ignores sign
 GCD ← ◌⍢⤚◿±⌵
 # Least common multiple
+#
 # Ignores sign
 LCM ← ⌵÷⊃GCD×
 
@@ -171,8 +184,9 @@ LCM ← ⌵÷⊃GCD×
   ⍤⤙≍ 24 LCM 8 12
 └─╴
 
-# Encode an array of numbers into digits of a given base.
-# Analogous to ⋯ for base 2; the least significant digit is first.
+# Encode an array of numbers into digits of a given base
+#
+# Analogous to `⋯` for base 2; the least significant digit is first.
 #
 # `Base` allows multiple bases as input.
 # ```uiua
@@ -223,6 +237,7 @@ ModOrd ← ⊡1⊚=1◿:ⁿ⇡,
 Binom ← /×÷+1⟜-⇡
 
 # Convert a number X to a continued fraction to N terms.
+#
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
 CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
@@ -247,6 +262,7 @@ Erf ← (
 └─╴
 
 # Seeded random indices from a distribution array
+#
 # Given a seed, a shape, and a probability distribution array
 # of any rank containing numbers that sum to 1, `DistRand` returns
 # an array of deep indices into the distribution arrays, chosen
@@ -269,6 +285,7 @@ Erf ← (
 DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+
 
 # Box-Muller transform
+#
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
 BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2ₙe¬
@@ -278,38 +295,47 @@ BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2ₙe¬
 Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
 
 # Binomial distribution
+#
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
 BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
 # Cumulative binomial distribution
+#
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
+#
 # **NOTE:** This function only accepts scalars for X. Use `each` or `rows` if multiple X values are desired
 # ? p n X
 BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 
 # Geometric distribution
+#
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
 GeomPmf ← ×˜ⁿ¬’
 # Cumulative geometric distribution
+#
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
 # ? p X
 GeomCmf ← ⍜¬˜ⁿ⊙(+1)
 
 # Poisson distribution
+#
 # Probability of X occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
 PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
 # Cumulative Poisson distribution
+#
 # Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
 PoissonCmf ← /+PoissonPmf⊓¤(⇡+1)
 
 # Normal distribution
+#
 # Probability density of a gaussian/bell curve with mean μ and standard deviation σ
 # ? σ μ X
 NormalPdf ← ÷⊃(×√τ|ⁿ⊙e÷2¯°√÷⊙-)
 # Cumulative normal distribution
+#
 # Probability that a normally distributed random variable with mean μ and standard deviation σ is less than X
 # ? σ μ X
 NormalCdf ← ÷2+1Erf÷×√2⊙-
@@ -321,7 +347,9 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 Perms ← ☇1⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 
 # Po-Shen quadratic solver
+#
 # Returns roots as a list
+#
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
 Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⟜:ℂ0¯÷2∩÷⟜:
