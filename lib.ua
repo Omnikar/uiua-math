@@ -53,12 +53,12 @@ Dot ← /+×
 Cross ← ↻2-∩(×↻2)⤙.
 # Matrix product
 #
-# Computes B * A
+# Computes AB
 # ? A B
-Mmp ← ⌅(⍜⍉⊞Dot|⍜⍉⊞Dot MInv)
+Mmp ← ⌅(⍜⍉⊞Dot:|⍜⍉⊞Dot: MInv)
 # Matrix-vector product
 #
-# Computes M * V where V is represented as a 1D list of numbers
+# Computes MV where V is represented as a 1D list of numbers
 # ? M V
 Mvp ← ⌅(Dot⍉|Dot⍉MInv)
 # Matrix power
@@ -78,7 +78,7 @@ QqpMask ↚ [
   4_3_¯2_¯1]
 # Quaternion product
 #
-# Computes P * Q for quaternion arrays P and Q.
+# Computes PQ for quaternion arrays P and Q.
 #
 # Semi-pervasive; the last axis of the inputs must be of length 4,
 # and will be interpreted as the input quaternions' real, i, j, and k.
