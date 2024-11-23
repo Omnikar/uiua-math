@@ -18,7 +18,7 @@ HMean ← ÷/+⟜⧻÷:1
 QMean ← √÷⧻⟜/+°√
 # Median
 # TODO: O(n) median algorithm?
-Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⊏⊸⍏
+Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⍆
 
 # Variance
 Var ← -°√∩÷∩⊃⧻/+⟜°√
@@ -32,7 +32,7 @@ GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
   ⊸⍜⊡(÷⊸⊡:),
-  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚˜⊙⍉)),
+  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚𝄈⊙⍉)),
 )°⊏
 
 # Matrix Determinant
@@ -311,18 +311,18 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 #
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×˜ⁿ¬’
+GeomPmf ← ×𝄈ⁿ¬’
 # Cumulative geometric distribution
 #
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
 # ? p X
-GeomCmf ← ⍜¬˜ⁿ⊙(+1)
+GeomCmf ← ⍜¬𝄈ⁿ⊙(+1)
 
 # Poisson distribution
 #
 # Probability of X occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
-PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
+PoissonPmf ← ÷⊙×⊃(⋅Fact|𝄈ⁿ|ⁿ⊙e¯)
 # Cumulative Poisson distribution
 #
 # Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
