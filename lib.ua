@@ -344,7 +344,7 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 
 # Permutation indices of N items
 # Indices ? N
-Perms ← ☇1⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
+Perms ← ♭₂⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 
 # Po-Shen quadratic solver
 #
