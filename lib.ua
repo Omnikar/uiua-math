@@ -298,7 +298,7 @@ Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
 #
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
-BinomPmf ← ××⊃(∵⧅>|ⁿ⊙⋅∘|ⁿ⊓-¬) ⤚⋅:
+BinomPmf ← ××⊃(∵⧅>|𝄐ⁿ|ⁿ⊓-¬) ⤚⋅:
 # Cumulative binomial distribution
 #
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
