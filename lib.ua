@@ -361,7 +361,12 @@ PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
 
 # Rank-polymorphic convolution using fast fourier transform
-FFTConvolve ← ⍥R=0↥⊃∩type(
-  ∩⬚0↙⟜:-1+∩△,,  # Pad to size of final array
-  ×√/×⊸△⍜∩RPFFT× # Multidimensional FFT, multiply, and normalize
-)
+┌─╴FFTConvolve
+  # Full convolution wherever any overlap between the inputs exists
+  Full ← ⍥R=0↥⊃∩type(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙-1+◡∩△)
+  Call ← Full
+  # Convolution of only instances of complete overlap between inputs
+  Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙)⊃-↥◡∩△)
+  # Convolution that maintains the shape of the larger input
+  Same ← ⍤"Not yet implemented (make a PR?)"0
+└─╴
