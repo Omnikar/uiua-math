@@ -311,7 +311,7 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 #
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×𝄈ⁿ¬’
+GeomPmf ← ×𝄈ⁿ⤚¬
 # Cumulative geometric distribution
 #
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
