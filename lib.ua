@@ -111,7 +111,7 @@ Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 # ? θ U
 RQuat ← ⍜⊙°⍉⊂⊙×:°∠÷2
 # Quaternion rotation implementation
-QRotImpl ↚ ⍜⊙°⍉↘1⍥₂Qqp⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
+QRotImpl ↚ ⍜⊙°⍉↘1 Qqp Qqp ⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # Rotate a 3D vector array using a quaternion array.
 #
 # To create rotation quaternions to use with `QRot`, see `RQuat`.
