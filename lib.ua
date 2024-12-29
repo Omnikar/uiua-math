@@ -368,5 +368,6 @@ RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
   # Convolution of only instances of complete overlap between inputs
   Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙)⊃-↥◡∩△)
   # Convolution that maintains the shape of the larger input
-  Same ← ⍤"Not yet implemented (make a PR?)"0
+  # **CURRENTLY UNIMPLEMENTED** - PR welcome
+  Same ← ⍤"Not yet implemented (make a PR?)"0 ⋅∘
 └─╴
