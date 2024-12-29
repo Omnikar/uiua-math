@@ -242,6 +242,17 @@ Binom ← /×÷+1⟜-⇡
 # ? N X
 CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
 
+# The divisors of N (including 1 and N).
+# The values are in increasing order (and are distinct).
+# ? N
+Divisors ← ◴⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
+
+┌─╴test
+  ⍤⤙≍ [1] Divisors 1
+  ⍤⤙≍ [1 2 3 4 6 9 12 18 36] Divisors 36
+  ⍤⤙≍ [1 2 4 5 8 10 20 25 40 50 100 125 200 250 500 1000] Divisors 1000
+└─╴
+
 # -- Probability --
 
 # Error function
