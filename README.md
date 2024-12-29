@@ -45,6 +45,7 @@ Functions list (see in-code documentation for more detail)
 | `ModOrd` | Multiplicative order of N modulo M |
 | `Binom` | Binomial coefficient aka N choose K |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
+| `Divisors` | Divisors of N (including 1 and N) |
 | `Erf` | Error function |
 | `DistRand` | Seeded random indices from a distribution array |
 | `BoxMuller` | Box-muller transform: generate pairs of normally distributed values given pairs of uniformly distributed values |

@@ -242,10 +242,10 @@ Binom ← /×÷+1⟜-⇡
 # ? N X
 CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
 
-# The divisors of N (including 1 and N).
-# The values are in increasing order (and are distinct).
+# Divisors of N (including 1 and N)
+# The values are in increasing order and distinct.
 # ? N
-Divisors ← ◴⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
+Divisors ← ◌°▽⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
 
 ┌─╴test
   ⍤⤙≍ [1] Divisors 1
