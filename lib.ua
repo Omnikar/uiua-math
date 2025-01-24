@@ -32,7 +32,7 @@ GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
   ⊸⍜⊡(÷⊸⊡:),
-  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚𝄈⊙⍉)),
+  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚˜⊙⍉)),
 )°⊏
 
 # Matrix Determinant
@@ -322,18 +322,18 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 # 
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×𝄈ⁿ⤚¬
+GeomPmf ← ×˜ⁿ⤚¬
 # Cumulative geometric distribution
 # 
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
 # ? p X
-GeomCmf ← ⍜¬𝄈ⁿ⊙(+1)
+GeomCmf ← ⍜¬˜ⁿ⊙(+1)
 
 # Poisson distribution
 # 
 # Probability of X occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
-PoissonPmf ← ÷⊙×⊃(⋅Fact|𝄈ⁿ|ⁿ⊙e¯)
+PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
 # Cumulative Poisson distribution
 # 
 # Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
@@ -363,7 +363,13 @@ Perms ← ♭₂⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:°√⤚∘ℂ0¯÷2∩÷⤚∘
+Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:⤚°√ℂ0¯÷2∩⌞÷
+
+┌─╴test
+  ⍤⤙≍ [1 2] Quad 1 ¯3 2
+  ⍤⤙≍ [¯i i] Quad 1 0 1
+  ⍤⤙≍ ∩⍆ [ℂ3 ¯1 ℂ¯1 2] ⁅₃ Quad 1 ℂ¯2 ¯1 ℂ7 1
+└─╴
 
 # Powerset of a list
 PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
