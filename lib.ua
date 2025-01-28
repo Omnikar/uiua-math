@@ -275,7 +275,8 @@ Erf ← (
 # Seeded random indices from a distribution array
 # 
 # Given a seed, a shape, and a probability distribution array
-# of any rank containing numbers that sum to 1, `DistRand` returns
+# of any rank containing positive numbers, `DistRand` normalizes
+# the distribution if necessary so it sums to 1, then returns
 # an array of deep indices into the distribution arrays, chosen
 # randomly weighted by the distribution. The generated random
 # indices will fill the shape given to the function. If the
@@ -293,7 +294,7 @@ Erf ← (
 # ##         ╯
 # ```
 # Indices ? Distribution Shape Seed
-DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+
+DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+÷/+⊸♭
 
 # Box-Muller transform
 # 
