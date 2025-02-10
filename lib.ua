@@ -3,8 +3,6 @@
 
 # Extract real
 R ↚ ◌°ℂ
-# Floating point epsilon
-ε ← 2.2204460492503131e-16
 
 # -- Averages --
 
@@ -32,16 +30,22 @@ GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
   ⊸⍜⊡(÷⊸⊡:),
-  ⍜(°⊂↻|⊙-:⊸⊞×:⊙(⊡⤚˜⊙⍉)),
+  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉)),
 )°⊏
 
 # Matrix Determinant
-MDet ← ◌⍣GaussEliminate‼(⍥¯/≠⊙⋅⋅∘|×⊙⋅⋅∘)⊙0 ⊙1
+MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
 Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 # Matrix Inverse
-MInv ← ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ≡⊂:⊞=.°⊏)
+MInv ← ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ˜≡⊂˙⊞=°⊏)
+
+┌─╴test
+  ⍤⤙≍ 5 ⁅₃ MDet [1_¯3_¯1 1_¯1_¯2 1_0_0]
+  ⍤⤙≍ [0_0_1 ¯0.4_0.2_0.2 0.2_¯0.6_0.4] ⁅₃ MInv [1_¯3_¯1 1_¯1_¯2 1_0_0]
+  ⍤⤙≍ ˙⊞=⇡3 ⁅₃ Mgje [1_¯3_¯1 1_¯1_¯2 1_0_0]
+└─╴
 
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
@@ -387,5 +391,5 @@ RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
   Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙)⊃-↥◡∩△)
   # Convolution that maintains the shape of the larger input
   # **CURRENTLY UNIMPLEMENTED** - PR welcome
-  Same ← ⍤"Not yet implemented (make a PR?)"0 ⋅∘
+  Same ← ⍤"Not yet implemented"0 ⋅∘
 └─╴
