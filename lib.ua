@@ -54,17 +54,17 @@ MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥�
 # Dot product
 Dot ← /+×
 # Cross product
-Cross ← ↻2-∩(×↻2)⤙.
+Cross ← ↻2-∩(×↻2)◡:
 # Matrix product
 #
 # Computes AB
 # ? A B
-Mmp ← ⌅(⍜⍉⊞Dot:|⍜⍉⊞Dot: MInv)
+Mmp ← |2 ⌅(⍜⍉⊞Dot:|Mmp MInv)
 # Matrix-vector product
 #
 # Computes MV where V is represented as a 1D list of numbers
 # ? M V
-Mvp ← ⌅(Dot⍉|Dot⍉MInv)
+Mvp ← |2 ⌅(Dot⍉|Mvp MInv)
 # Matrix power
 # ? P M
 Mpow ← ⊙◌⍥(⊞Dot⤙⍉):⊞=.⇡⧻⤙∘
@@ -360,6 +360,7 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 
 # Permutation indices of N items
 # Indices ? N
+# Deprecated! Use `⧅≠⟜⇡` instead.
 Perms ← ♭₂⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 
 # Po-Shen quadratic solver
