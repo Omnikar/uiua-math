@@ -29,8 +29,8 @@ Stdev ← √Var
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
-  ⊸⍜⊡(÷⊸⊡:)⤙∘
-  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⤙∘
+  ⊸⍜⊡(÷⊸⊡:)⤙⊙∘
+  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⤙⊙∘
 )°⊏
 
 # Matrix Determinant
@@ -218,7 +218,7 @@ LCM ← ⌵÷⊃GCD×
 # ```
 Base ← ⌅(
   ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
-| /+×ⁿ⊙¤⇡⧻⤙∘⊙°⍉)
+| /+×ⁿ⊙¤⇡◡⋅⧻⊙°⍉)
 
 ┌─╴test
   ⍤⤙≍ [[2_2 1_0][3_1 1_1]] Base 5 [12_1 8_6]
@@ -229,10 +229,10 @@ Base ← ⌅(
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
-ModInv ← ⊗1◿:×⇡⤙∘
+ModInv ← ⊗1◿:×◡⋅⇡
 # Multiplicative order of N modulo M
 # ? N M
-ModOrd ← ⊡1⊚=1◿:ⁿ⇡⤙∘
+ModOrd ← ⊡1⊚=1◿:ⁿ◡⋅⇡
 
 ┌─╴test
   ⍤⤙≍ 2 ModInv 4 7
@@ -240,13 +240,14 @@ ModOrd ← ⊡1⊚=1◿:ⁿ⇡⤙∘
 
 # Binomial coefficient aka N choose K
 # ? K N
+# Deprecated! Use `⧅<` instead.
 Binom ← /×÷+1⟜-⇡
 
 # Convert a number X to a continued fraction to N terms.
 # 
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
+CFrac ← ⌅(⍥⊃(÷⤚◿1)⌊|⊃⧻/(+÷:1))
 
 # Divisors of N (including 1 and N)
 # The values are in increasing order and distinct.
@@ -329,7 +330,7 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 # 
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×˜ⁿ⤚¬
+GeomPmf ← ×⟜(˜ⁿ¬)
 # Cumulative geometric distribution
 # 
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
@@ -371,7 +372,7 @@ Perms ← ♭₂⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:⤚°√ℂ0¯÷2∩⌞÷
+Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:⤚⊓°√∘ℂ0¯÷2∩⌞÷
 
 ┌─╴test
   ⍤⤙≍ [1 2] Quad 1 ¯3 2
