@@ -29,8 +29,8 @@ Stdev ← √Var
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
-  ⊸⍜⊡(÷⊸⊡:)⤙∘
-  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⤙∘
+  ⊸⍜⊡(÷⊸⊡:)⊸:
+  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⊸:
 )°⊏
 
 # Matrix Determinant
@@ -77,11 +77,10 @@ Mpow ← ◌⍥⟜Mmp⊙(:⊞=.°⊏)
   ⍤⤙≍ [¯8 5 ¯3 2 ¯1 1 0 1 1 2 3 5 8] ≡(⊢♭Mpow) ⍜-⇡¯7 6 ¤ [1_1 1_0]
 └─╴
 
-QqpMask ↚ [
-  1_2_3_4
-  2_¯1_4_¯3
-  3_¯4_¯1_2
-  4_3_¯2_¯1]
+QqpMask ↚ [1_2_3_4
+           2_¯1_4_¯3
+           3_¯4_¯1_2
+           4_3_¯2_¯1]
 # Quaternion product
 #
 # Computes PQ for quaternion arrays P and Q.
@@ -166,7 +165,8 @@ Gamma ← (
       ¯2.7405717035683877e-8
       4.048694881756761e-9
     ]
-    /+÷⍜⊢⋅1≡+⊙¤⊙:)
+    /+÷⍜⊢⋅1≡+⊙¤⊙:
+  )
   ××× √τ ⁿ¯⊙e ⤙ⁿ ⤙+ 8 # g
 )
 
@@ -218,7 +218,7 @@ LCM ← ⌵÷⊃GCD×
 # ```
 Base ← ⌅(
   ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
-| /+×ⁿ⊙¤⇡⧻⤙∘⊙°⍉)
+| /+×ⁿ⊙¤⇡◡⋅⧻⊙°⍉)
 
 ┌─╴test
   ⍤⤙≍ [[2_2 1_0][3_1 1_1]] Base 5 [12_1 8_6]
@@ -229,10 +229,10 @@ Base ← ⌅(
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
-ModInv ← ⊗1◿:×⇡⤙∘
+ModInv ← ⊗1◿:×◡⋅⇡
 # Multiplicative order of N modulo M
 # ? N M
-ModOrd ← ⊡1⊚=1◿:ⁿ⇡⤙∘
+ModOrd ← ⊡1⊚=1◿:ⁿ◡⋅⇡
 
 ┌─╴test
   ⍤⤙≍ 2 ModInv 4 7
@@ -240,13 +240,19 @@ ModOrd ← ⊡1⊚=1◿:ⁿ⇡⤙∘
 
 # Binomial coefficient aka N choose K
 # ? K N
+# Deprecated! Use `⧅<` instead.
 Binom ← /×÷+1⟜-⇡
 
 # Convert a number X to a continued fraction to N terms.
 # 
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-CFrac ← ⌅([◌⍥⊃(÷⤚◿1)⌊]|⊃⧻/(+÷:1))
+CFrac ← ⌅(⍥⊃(÷⤚◿1)⌊|⊃⧻/(+÷:1)⇌)
+
+┌─╴test
+  ⍤⤙≍ [3 7 15 1 292 1 1 1] CFrac 8 π
+  ⍤⤙≍ e ◌°CFrac CFrac 100 e
+└─╴
 
 # Divisors of N (including 1 and N)
 # The values are in increasing order and distinct.
@@ -329,7 +335,7 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 # 
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×˜ⁿ⤚¬
+GeomPmf ← ×˜ⁿ¬⟜:
 # Cumulative geometric distribution
 # 
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
@@ -360,18 +366,13 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 
 # -- Misc --
 
-# Permutation indices of N items
-# Indices ? N
-# Deprecated! Use `⧅≠⟜⇡` instead.
-Perms ← ♭₂⍉∧(≡↻⇡⟜↯+1⟜⊂):¤¤°⊂⇡
-
 # Po-Shen quadratic solver
 # 
 # Returns roots as a list
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:⤚°√ℂ0¯÷2∩⌞÷
+Quad ← ⍥R⌵↥₀:⊟⊃-+⊙:√⟜±˜-°√⟜:ℂ₀¯÷₂∩⌞÷
 
 ┌─╴test
   ⍤⤙≍ [1 2] Quad 1 ¯3 2
@@ -383,15 +384,16 @@ Quad ← ⍥R⌵↥0:⊟⊃-+⊙:√⟜±-:⤚°√ℂ0¯÷2∩⌞÷
 PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
 
 # Rank-polymorphic fast fourier transform
+# Deprecated! `fft` has been updated to be rank-polymorphic by default. Use that instead.
 RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
 
 # Rank-polymorphic convolution using fast fourier transform
 ┌─╴FFTConvolve
   # Full convolution wherever any overlap between the inputs exists
-  Full ← ⍥R=0↥⊃∩type(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙-1+◡∩△)
+  Full ← ⍥R=0↥⊃∩type(×√/×⊸△⍜∩fft×∩⌞⬚0↙-1+◡∩△)
   Call ← Full
   # Convolution of only instances of complete overlap between inputs
-  Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩RPFFT×∩⌞⬚0↙)⊃-↥◡∩△)
+  Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩fft×∩⌞⬚0↙)⊃-↥◡∩△)
   # Convolution that maintains the shape of the larger input
   # **CURRENTLY UNIMPLEMENTED** - PR welcome
   Same ← ⍤"Not yet implemented"0 ⋅∘
