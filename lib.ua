@@ -306,7 +306,7 @@ Erf ← (
 # ##         ╯
 # ```
 # Indices ? Distribution Shape Seed
-DistRand ← ⍜♭≡(⊢⊚>):⊓¤gen⍜♭\+÷/+⊸♭
+DistRand ← ˜⍜♭≡(⊢⊚>)⊓¤gen⍜♭\+÷/+⊸♭
 
 # Box-Muller transform
 # 
