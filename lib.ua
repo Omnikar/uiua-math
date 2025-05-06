@@ -39,7 +39,7 @@ MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
 # Perform Gauss-Jordan elimination
 Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 # Matrix Inverse
-MInv ← ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ˜≡⊂˙⊞=°⊏)
+MInv ← |1 ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ˜≡⊂˙⊞=°⊏|MInv)
 
 ┌─╴test
   ⍤⤙≍ 5 ⁅₃ MDet [1_¯3_¯1 1_¯1_¯2 1_0_0]
