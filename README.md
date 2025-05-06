@@ -43,7 +43,6 @@ Functions list (see in-code documentation for more detail)
 | `Base` | Encode an array of numbers into digits of a given base |
 | `ModInv` | Inverse of N modulo M |
 | `ModOrd` | Multiplicative order of N modulo M |
-| `Binom` | Binomial coefficient aka N choose K |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
 | `Divisors` | Divisors of N (including 1 and N) |
 | `Erf` | Error function |
@@ -58,8 +57,6 @@ Functions list (see in-code documentation for more detail)
 | `PoissonCmf` | Cumulative Poisson distribution |
 | `NormalPdf` | Normal distribution |
 | `NormalCdf` | Cumulative normal distribution |
-| `Perms` | Permutations of N items |
 | `Quad` | Po-Shen quadratic solver |
 | `PSet` | Powerset of a list |
-| `RPFFT` | Rank-polymorphic fast fourier transform |
 | `FFTConvolve` | Rank-polymorphic convolution using fast fourier transform |
