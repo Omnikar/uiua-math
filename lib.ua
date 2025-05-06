@@ -67,7 +67,7 @@ Mmp ← |2 ⌅(⍜⍉⊞Dot:|Mmp MInv)
 Mvp ← |2 ⌅(Dot⍉|Mvp MInv)
 # Matrix power
 # ? P M
-Mpow ← ◌⍥⟜Mmp⊙(:⊞=.°⊏)
+Mpow ← ⍥Mmp⊙(˙⊞=°⊏)
 
 ┌─╴test
   ⍤⤙≍ [3_7 ¯6_2] ⌝Mmp [1_0 0_1] [3_7 ¯6_2]
