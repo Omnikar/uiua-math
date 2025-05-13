@@ -49,7 +49,7 @@ MInv ← |1 ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ˜≡�
 
 MSquarify ↚ ⍜△[.√⊢]
 # Matrix Cofactors
-MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0∵°⊚⊚⊸=.
+MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0≡₀°⊚⊚⊸=.
 
 # Dot product
 Dot ← /+×
@@ -145,7 +145,7 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 # -- Number theory --
 
 # Pervasive factorial
-Fact ← /×°⍉+1⬚0∵⇡
+Fact ← /×°⍉+1⬚0≡₀⇡
 
 # Gamma function
 # Γ(z)
@@ -324,7 +324,7 @@ Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
-BinomPmf ← ××⊃(∵⧅>|𝄐ⁿ|ⁿ⊓-¬) ⤚⋅:
+BinomPmf ← ××⊃(≡₀⧅>|𝄐ⁿ|ⁿ⊓-¬) ⤚⋅:
 # Cumulative binomial distribution
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
