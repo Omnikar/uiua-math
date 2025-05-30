@@ -9,9 +9,9 @@ R ↚ ◌°ℂ
 # Arithmetic mean
 Mean ← ÷⧻⟜/+
 # Geometric mean
-GMean ← ⁿ÷:1⧻⟜/×
+GMean ← ⁿ˜÷1⧻⟜/×
 # Harmonic mean
-HMean ← ÷/+⟜⧻÷:1
+HMean ← ÷/+⟜⧻˜÷1
 # Quadratic mean
 QMean ← √÷⧻⟜/+°√
 # Median
@@ -59,7 +59,7 @@ Cross ← ↻2-∩(×↻2)◡:
 #
 # Computes AB
 # ? A B
-Mmp ← |2 ⌅(⍜⍉⊞Dot:|Mmp MInv)
+Mmp ← |2 ⌅(˜⍜⍉⊞Dot|Mmp MInv)
 # Matrix-vector product
 #
 # Computes MV where V is represented as a 1D list of numbers
@@ -116,7 +116,7 @@ Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 # To use rotation quaternions created by `RQuat` to rotate 3D
 # vectors, see `QRot`.
 # ? θ U
-RQuat ← ⍜⊙°⍉⊂⊙×:°∠÷2
+RQuat ← ⍜⊙°⍉⊂𝄐⌞×°∠÷2
 # Quaternion rotation implementation
 QRotImpl ↚ ⍜⊙°⍉↘1 Qqp Qqp ⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
 # Rotate a 3D vector array using a quaternion array.
@@ -231,10 +231,10 @@ Base ← ⌅(
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
-ModInv ← ⊗1◿:×◡⋅⇡
+ModInv ← ⊗1˜◿×◡⋅⇡
 # Multiplicative order of N modulo M
 # ? N M
-ModOrd ← ⊡1⊚=1◿:ⁿ◡⋅⇡
+ModOrd ← ⊡1⊚=1˜◿ⁿ◡⋅⇡
 
 ┌─╴test
   ⍤⤙≍ 2 ModInv 4 7
@@ -249,7 +249,7 @@ Binom ← /×÷+1⟜-⇡
 # 
 # Use `°CFrac` to convert to a number from a continued fraction.
 # ? N X
-CFrac ← ⌅(⍥⊃(÷⤚◿1)⌊|⊃⧻/(+÷:1)⇌)
+CFrac ← ⌅(⍥⊃(÷⤚◿1)⌊|⊃⧻/(+˜÷1)⇌)
 
 ┌─╴test
   ⍤⤙≍ [3 7 15 1 292 1 1 1] CFrac 8 π
@@ -271,7 +271,7 @@ Divisors ← ◌°▽⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
 
 # Error function
 Erf ← (
-  ÷:1+1×0.3275911 ⟜(ⁿ:e¯×.) ⌵⟜±
+  ˜÷1+1×0.3275911 ⟜(˜ⁿe¯×.) ⌵⟜±
   :[1.061405429 ¯1.453152027 1.421413741
     ¯0.284496736 0.254829592
   ]:0
@@ -318,7 +318,7 @@ BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2ₙe¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
-Gaussian ← ÷/+⊸♭ⁿ:e¯÷2°√÷:⌵⊞ℂ.-÷2-1⟜⇡
+Gaussian ← ÷/+⊸♭˜ⁿe¯÷2°√˜÷⌵⊞ℂ.-÷2-1⟜⇡
 
 # Binomial distribution
 # 
@@ -383,7 +383,7 @@ Quad ← ⍥R⌵↥₀:⊟⊃-+⊙:√⟜±˜-°√⟜:ℂ₀¯÷₂∩⌞÷
 └─╴
 
 # Powerset of a list
-PSet ← ⍚▽⋯⇡ⁿ:2⧻⟜¤
+PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
 
 # Rank-polymorphic fast fourier transform
 # Deprecated! `fft` has been updated to be rank-polymorphic by default. Use that instead.
