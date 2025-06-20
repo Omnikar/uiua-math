@@ -13,13 +13,13 @@ GMean ← ⁿ˜÷1⧻⟜/×
 # Harmonic mean
 HMean ← ÷/+⟜⧻˜÷1
 # Quadratic mean
-QMean ← √÷⧻⟜/+°√
+QMean ← √÷⧻⟜/+˙×
 # Median
 # TODO: O(n) median algorithm?
 Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⍆
 
 # Variance
-Var ← -°√∩÷∩⊃⧻/+⟜°√
+Var ← -˙×∩÷∩⊃⧻/+⟜˙×
 # Standard deviation
 Stdev ← √Var
 
@@ -147,6 +147,10 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 # Pervasive factorial
 Fact ← /×°⍉+1⬚0≡₀⇡
 
+┌─╴test
+  ⍤⤙≍ [1 1 2 6 24 120 720 5040] Fact [0 1 2 3 4 5 6 7]
+└─╴
+
 # Gamma function
 # Γ(z)
 Gamma ← (
@@ -169,7 +173,7 @@ Gamma ← (
     ]
     /+÷⍜⊢⋅1≡+⊙¤⊙:
   )
-  ××× √τ ⁿ¯⊙e ⤙ⁿ ⤙+ 8 # g
+  ××× √τ ₑ¯ ⤙ⁿ ⤙+ 8 # g
 )
 
 ┌─╴test
@@ -318,7 +322,7 @@ BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2°ₑ¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
-Gaussian ← ÷/+⊸♭˜ⁿe¯÷2°√˜÷⌵⊞ℂ.-÷2-1⟜⇡
+Gaussian ← ÷/+⊸♭ₑ¯÷2˙×˜÷⌵⊞ℂ.-÷2-1⟜⇡
 
 # Binomial distribution
 # 
@@ -348,7 +352,7 @@ GeomCmf ← ⍜¬˜ⁿ⊙(+1)
 # 
 # Probability of X occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
-PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ⁿ⊙e¯)
+PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ₑ¯)
 # Cumulative Poisson distribution
 # 
 # Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
@@ -359,7 +363,7 @@ PoissonCmf ← /+PoissonPmf⊓¤(⇡+1)
 # 
 # Probability density of a gaussian/bell curve with mean μ and standard deviation σ
 # ? σ μ X
-NormalPdf ← ÷⊃(×√τ|ⁿ⊙e÷2¯°√÷⊙-)
+NormalPdf ← ÷⊃(×√τ|ₑ÷2¯˙×÷⊙-)
 # Cumulative normal distribution
 # 
 # Probability that a normally distributed random variable with mean μ and standard deviation σ is less than X
@@ -374,7 +378,7 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵↥₀:⊟⊃-+⊙:√⟜±˜-°√⟜:ℂ₀¯÷₂∩⌞÷
+Quad ← ⍥R⌵↥₀:⊟⊃-+⊙:√⟜±˜-˙×⟜:ℂ₀¯÷₂∩⌞÷
 
 ┌─╴test
   ⍤⤙≍ [1 2] Quad 1 ¯3 2
