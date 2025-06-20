@@ -219,7 +219,7 @@ LCM ← ⌵÷⊃GCD×
 # ##       ╯
 # ```
 Base ← ⌅(
-  ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃ₙ⊙⊙[]
+  ⍉◌∧⊃◿(⊂¤⌊÷)ⁿ⊙¤⇌⇡/↥♭+1⌊⊃⌝˜ⁿ⊙⊙[]
 | /+×ⁿ⊙¤⇡◡⋅⧻⊙°⍉)
 
 ┌─╴test
@@ -314,7 +314,7 @@ DistRand ← ˜⍜♭≡(⊢⊚>)⊓¤gen⍜♭\+÷/+⊸♭
 # 
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
-BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2ₙe¬
+BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2°ₑ¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
