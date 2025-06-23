@@ -1,7 +1,7 @@
 # uiua-math
 `uiua-math` is a library of mathematical functions for the [Uiua](https://uiua.org) programming language.
 
-The library requires `# Experimental!` due to usage of the `fft` function (for `FFTConvolve`) and internal usage of experimental stack manipulation modifiers.
+The library requires `# Experimental!` due to internal usage of experimental stack manipulation modifiers.
 
 Import the whole lib
 ```uiua
