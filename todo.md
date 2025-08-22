@@ -1,2 +1,3 @@
 - Runge-Kutta-Fehlberg variable step size numerical integration macro?
-- Implement `FFTConvolve~Same`
+- Improve matrix product `anti`s to use direct Gaussian elimination instead of going through the inverse first
+  - This will help prevent numerical imprecision errors for large matrices
