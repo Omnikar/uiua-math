@@ -37,9 +37,9 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje ← +0⍥(
+Mgje ← ⊏⍏⊗1⊸≠0 ⍥(
   ↻₁⍣(⍜⊙⊢÷⟜(-⊞×⊙⊸⊢⊂0÷)°⊂⊸≡⊏⊢)◌⊚≠0⊸⊢
-)⊸⧻ ⊏⍏⊸=0
+)⊸⧻
 # Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 
 # Matrix Inverse
