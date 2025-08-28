@@ -37,7 +37,7 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje ← ⊏⍏⊗1⊸≠0 ⍥(
+Mgje ← ⊏⍏˜⨂1>1e-14⊸⌵ ⍥(
   ↻₁⍣(⍜⊙⊢÷⟜(-⊞×⊙⊸⊢⊂0÷)°⊂⊸≡⊏⊢)◌⊚>1e-14⌵⊸⊢
 )⊸⧻
 # Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
@@ -258,7 +258,7 @@ Base ← ⌅(
 
 # Inverse of N modulo M (M if nonexistent)
 # ? N M
-ModInv ← ⊗1˜◿×◡⋅⇡
+ModInv ← ˜⨂1˜◿×◡⋅⇡
 # Multiplicative order of N modulo M
 # ? N M
 ModOrd ← ⊡1⊚=1˜◿ⁿ◡⋅⇡
