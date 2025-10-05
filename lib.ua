@@ -84,12 +84,12 @@ Cross ← ↻2-∩(×↻2)◡:
 #
 # Computes AB
 # ? A B
-Mmp ← |2 ⌅(⊞Dot⊙⍉|Mmp MInv)
+Mmp ← |2 ⌅(⊞Dot⊙⍉|◌⍜≡⊂Mgje)
 # Matrix-vector product
 #
 # Computes MV where V is represented as a 1D list of numbers
 # ? M V
-Mvp ← |2 ⌅(Dot⍉|Mvp MInv)
+Mvp ← |2 ⌅(Dot⍉|♭◌⍜≡⊂Mgje)
 # Matrix power
 # ? P M
 Mpow ← ◌⍥⟜Mmp⊙(:˙⊞=°⊏)
