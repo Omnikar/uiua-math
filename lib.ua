@@ -37,8 +37,8 @@ GaussEliminate‼ ↚ ∧(
 MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
-Mgje ← ⊏⍏˜⨂1>1e-13⊸⌵ ⍥(
-  ↻₁⍣(⍜⊙⊢÷⟜(-⊞×⊙⊸⊢⊂0÷)°⊂⊸≡⊏⊢)◌⊚>1e-13⌵⊸⊢
+Mgje ← ⊏⍏˜⨂1>1e-12⊸⌵ ⍥(
+  ↻₁⍣(⍜⊙⊢÷⟜(-⊞×⊙⊸⊢⊂0÷)°⊂⊸≡⊏⊢)◌⊚>1e-12⌵⊸⊢
 )⊸⧻
 # Mgje ← ⍣GaussEliminate‼(|)(⍤"Elimination cannot be completed"0)
 
@@ -84,7 +84,7 @@ Cross ← ↻2-∩(×↻2)◡:
 #
 # Computes AB
 # ? A B
-Mmp ← |2 ⌅(˜⍜⍉⊞Dot|Mmp MInv)
+Mmp ← |2 ⌅(⊞Dot⊙⍉|Mmp MInv)
 # Matrix-vector product
 #
 # Computes MV where V is represented as a 1D list of numbers
