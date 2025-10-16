@@ -24,6 +24,18 @@ Functions list (see in-code documentation for more detail)
 | `Median` | Median |
 | `Var` | Variance |
 | `Stdev` | Standard deviation |
+| `Sin` | Sine |
+| `Cos` | Cosine |
+| `Tan` | Tangent |
+| `Csc` | Cosecant |
+| `Sec` | Secant |
+| `Cot` | Cotangent |
+| `Sinh` | Hyperbolic sine |
+| `Cosh` | Hyperbolic cosine |
+| `Tanh` | Hyperbolic tangent |
+| `Csch` | Hyperbolic cosecant |
+| `Sech` | Hyperbolic secant |
+| `Coth` | Hyperbolic cotangent |
 | `MDet` | Matrix determinant |
 | `Mgje` | Matrix Gauss-Jordan Elimination |
 | `MCof` | Matrix cofactors |
