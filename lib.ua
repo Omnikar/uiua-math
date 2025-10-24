@@ -4,6 +4,11 @@
 # Extract real
 R ↚ ◌°ℂ
 
+# Reach
+H! ← ^⊙◌
+# Flip
+F ← ˜∘
+
 # -- Averages --
 
 # Arithmetic mean
@@ -29,12 +34,12 @@ Stdev ← √Var
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
   ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ˙⍤≥ε⊸⌵) ⟜⊡
-  ⊸⍜⊡(÷˜⊸⊡)⊸˜∘
-  ⍜(°⊂↻|˜⊙-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⊸˜∘
+  ⊸⍜⊡(÷˜⊸⊡)⊸F
+  ⍜(°⊂↻|˜⊙-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⊸F
 )°⊏
 
 # Matrix Determinant
-MDet ← ◌⍣GaussEliminate‼(⍥¯˜⌞⋅˜⋅/≠)˜⌞⋅˜⋅× ⊙0⊙1
+MDet ← ◌⍣GaussEliminate‼(⍥¯H!H!/≠)H!H!× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
 Mgje ← ⊏⍏˜⨂1>1e-12⊸⌵ ⍥(
@@ -79,7 +84,7 @@ MCof ← ⍥¯˙⊞≠◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥
 # Dot product
 Dot ← /+×
 # Cross product
-Cross ← ↻2-∩(×↻2)◡˜∘
+Cross ← ↻2-∩(×↻2)◡F
 # Matrix product
 #
 # Computes AB
@@ -92,7 +97,7 @@ Mmp ← |2 ⌅(⊞Dot⊙⍉|◌⍜≡⊂Mgje)
 Mvp ← |2 ⌅(Dot⍉|♭◌⍜≡⊂Mgje)
 # Matrix power
 # ? P M
-Mpow ← ◌⍥⟜Mmp⊙(˜∘˙⊞=°⊏)
+Mpow ← ◌⍥⟜Mmp⊙(F˙⊞=°⊏)
 # TODO: Change to this if it comes to work with negative powers
 # Mpow ← ⍥⟜Mmp⊙(˙⊞=°⊏)
 
@@ -343,7 +348,7 @@ DistRand ← ˜⍜♭≡(⊢⊚>)⊓¤gen⍜♭\+÷/+⊸♭
 # 
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
-BoxMuller ← ∩×⤙⊓°∠∘×τ˜∘√×¯2°ₑ¬
+BoxMuller ← ∩×⤙⊓°∠∘×τF√×¯2°ₑ¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
@@ -353,7 +358,7 @@ Gaussian ← ÷/+⊸♭ₑ¯÷2˙×˜÷⌵˙⊞ℂ-÷2-1⟜⇡
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
-BinomPmf ← ××⊃(≡₀⧅>|˜⋅ⁿ|ⁿ⊓-¬) ⤚⋅˜∘
+BinomPmf ← ××⊃(≡₀⧅>|˜⋅ⁿ|ⁿ⊓-¬) ⤚⋅F
 # Cumulative binomial distribution
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
@@ -403,7 +408,7 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵˜↥₀⊟⊃-+⊙˜∘√⟜±˜-˙×⟜˜∘ℂ₀¯÷₂∩⌞÷
+Quad ← ⍥R⌵˜↥₀⊟⊃-+⊙F√⟜±˜-˙×⟜Fℂ₀¯÷₂∩⌞÷
 
 ┌─╴test
   ⍤⤙≍ [1 2] Quad 1 ¯3 2
