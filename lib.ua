@@ -28,13 +28,13 @@ Stdev ← √Var
 # ? SwappedRows Pivot
 GaussEliminate‼ ↚ ∧(
   ⊢⍖⊸⌵⍜⊙↙×0⟜⊡⤚⊸⊙⍉
-  ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ⍤.≥ε⊸⌵) ⟜⊡
-  ⊸⍜⊡(÷⊸⊡:)⊸:
-  ⍜(°⊂↻|𝄐⌞-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⊸:
+  ⍜⊏⇌ ⊃⊙⊙∘^0 ⊟⤙⊙⊙∘ ⊙(⊃⋅⊙∘^1 ˙⍤≥ε⊸⌵) ⟜⊡
+  ⊸⍜⊡(÷˜⊸⊡)⊸˜∘
+  ⍜(°⊂↻|˜⊙-˜⊸⊞×⊙(⊡⤚˜⊙⍉))⊸˜∘
 )°⊏
 
 # Matrix Determinant
-MDet ← ◌⍣GaussEliminate‼(⍥¯𝄐𝄐/≠)𝄐𝄐× ⊙0⊙1
+MDet ← ◌⍣GaussEliminate‼(⍥¯˜⌞⋅˜⋅/≠)˜⌞⋅˜⋅× ⊙0⊙1
 
 # Perform Gauss-Jordan elimination
 Mgje ← ⊏⍏˜⨂1>1e-12⊸⌵ ⍥(
@@ -72,14 +72,14 @@ MInv ← |1 ⌅(⍜⍉(↘÷2⊸⧻) ⍣Mgje(⍤"Matrix has no inverse"0) ˜≡�
   #      0_0_0_0_1]
 └─╴
 
-MSquarify ↚ ⍜△[.√⊢]
+MSquarify ↚ ⍜△[⟜∘√⊢]
 # Matrix Cofactors
-MCof ← ⍥¯⊞≠.◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0≡₀°⊚⊚⊸=.
+MCof ← ⍥¯˙⊞≠◿2°⊏MSquarify≡(MDet MSquarify≡⊡⊙¤⊚¬⊞↥°⊟)⊙¤⬚0≡₀°⊚⊚⊸⊸=
 
 # Dot product
 Dot ← /+×
 # Cross product
-Cross ← ↻2-∩(×↻2)◡:
+Cross ← ↻2-∩(×↻2)◡˜∘
 # Matrix product
 #
 # Computes AB
@@ -92,13 +92,13 @@ Mmp ← |2 ⌅(⊞Dot⊙⍉|◌⍜≡⊂Mgje)
 Mvp ← |2 ⌅(Dot⍉|♭◌⍜≡⊂Mgje)
 # Matrix power
 # ? P M
-Mpow ← ◌⍥⟜Mmp⊙(:˙⊞=°⊏)
+Mpow ← ◌⍥⟜Mmp⊙(˜∘˙⊞=°⊏)
 # TODO: Change to this if it comes to work with negative powers
 # Mpow ← ⍥⟜Mmp⊙(˙⊞=°⊏)
 
 ┌─╴test
   ⍤⤙≍ [3_7 ¯6_2] ⌝Mmp [1_0 0_1] [3_7 ¯6_2]
-  ⍤⤙≍ [1_0 0_1] ⁅ ⌝Mmp . [1_2 3_4]
+  ⍤⤙≍ [1_0 0_1] ⁅ ˙⌝Mmp [1_2 3_4]
   ⍤⤙≍ 3 ⁅ MDet [5_6 2_3]
 
   ⍤⤙≍ [¯8 5 ¯3 2 ¯1 1 0 1 1 2 3 5 8] ≡(⊢♭Mpow) ⍜-⇡¯7 6 ¤ [1_1 1_0]
@@ -141,9 +141,9 @@ Qqp ← ⍉⊕/+-1⌵⊙×⟜±QqpMask⊞×∩°⍉
 # To use rotation quaternions created by `RQuat` to rotate 3D
 # vectors, see `QRot`.
 # ? θ U
-RQuat ← ⍜⊙°⍉⊂𝄐⌞×°∠÷2
+RQuat ← ⍜⊙°⍉⊂˜⊙×°∠÷2
 # Quaternion rotation implementation
-QRotImpl ↚ ⍜⊙°⍉↘1 Qqp Qqp ⟜⍜∩°⍉(⬚0↙¯4:⍜↘¯ 1)
+QRotImpl ↚ ⍜⊙°⍉↘1 Qqp Qqp ⟜⍜∩°⍉(˜⬚0↙₋₄⍜↘¯ 1)
 # Rotate a 3D vector array using a quaternion array.
 #
 # To create rotation quaternions to use with `QRot`, see `RQuat`.
@@ -164,7 +164,7 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 
 ┌─╴test
   ⍤⤙≍ [¯48_6_6_12 ¯120_24_60_48] Qqp [1_2_3_4 2_4_6_8] [1_3_5_7 5_6_7_8]
-  ⍤⤙≍ [¯2_3_0 ¯3_1_2] ⁅ QRot ¤:[3_2_0 1_3_2] RQuat η 0_0_1
+  ⍤⤙≍ [¯2_3_0 ¯3_1_2] ⁅ QRot ¤ ⊙[3_2_0 1_3_2] RQuat η 0_0_1
 └─╴
 
 # -- Number theory --
@@ -196,7 +196,7 @@ Gamma ← (
       ¯2.7405717035683877e-8
       4.048694881756761e-9
     ]
-    /+÷⍜⊢⋅1≡+⊙¤⊙:
+    /+÷⍜⊢⋅1≡+⊙˜¤
   )
   ××× √τ ₑ¯ ⤙ⁿ ⤙+ 8 # g
 )
@@ -204,7 +204,7 @@ Gamma ← (
 ┌─╴test
   ⍤⤙(<1e¯10 ⌵-) √π Gamma 1/2
   ⍤⤙(<1e¯10 ⌵-) 24 Gamma 5
-  ⍤⤙(<1e¯10 ⌵-) ℂ¯0.09161772311294437 0.024480267015440246 Gamma ℂ.¯√2
+  ⍤⤙(<1e¯10 ⌵-) ℂ¯0.09161772311294437 0.024480267015440246 Gamma ˙ℂ¯√2
 └─╴
 
 # Greatest common divisor
@@ -300,10 +300,10 @@ Divisors ← ◌°▽⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
 
 # Error function
 Erf ← (
-  ˜÷1+1×0.3275911 ⟜(˜ⁿe¯×.) ⌵⟜±
-  :[1.061405429 ¯1.453152027 1.421413741
+  ˜÷1+1×0.3275911 ⟜(˜ⁿe¯˙×) ⌵⟜±
+  ⊙[1.061405429 ¯1.453152027 1.421413741
     ¯0.284496736 0.254829592
-  ]:0
+  ]⊙0
   ×¬×∧(×⊙+)¤
 )
 
@@ -343,17 +343,17 @@ DistRand ← ˜⍜♭≡(⊢⊚>)⊓¤gen⍜♭\+÷/+⊸♭
 # 
 # Converts uniformly distributed pairs of input values to
 # standard normally distributed pairs of output values
-BoxMuller ← ∩×⤙⊓°∠∘×τ:√×¯2°ₑ¬
+BoxMuller ← ∩×⤙⊓°∠∘×τ˜∘√×¯2°ₑ¬
 
 # Generate a 2 dimensional square Gaussian kernel
 # ? Size StandardDeviation
-Gaussian ← ÷/+⊸♭ₑ¯÷2˙×˜÷⌵⊞ℂ.-÷2-1⟜⇡
+Gaussian ← ÷/+⊸♭ₑ¯÷2˙×˜÷⌵˙⊞ℂ-÷2-1⟜⇡
 
 # Binomial distribution
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
-BinomPmf ← ××⊃(≡₀⧅>|𝄐ⁿ|ⁿ⊓-¬) ⤚⋅:
+BinomPmf ← ××⊃(≡₀⧅>|˜⋅ⁿ|ⁿ⊓-¬) ⤚⋅˜∘
 # Cumulative binomial distribution
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
@@ -366,7 +366,7 @@ BinomCmf ← /+BinomPmf⊓∩¤(⇡+1)
 # 
 # Probability of X failures before the first success of repeated trials with success probability p
 # ? p X
-GeomPmf ← ×˜ⁿ¬⟜:
+GeomPmf ← ×⟜(˜ⁿ¬)
 # Cumulative geometric distribution
 # 
 # Probability of X or fewer failures before the first success of repeated trials with success probability p
@@ -403,7 +403,7 @@ NormalCdf ← ÷2+1Erf÷×√2⊙-
 # 
 # Outputs complex-typed numbers only if the roots are complex
 # ? A B C
-Quad ← ⍥R⌵↥₀:⊟⊃-+⊙:√⟜±˜-˙×⟜:ℂ₀¯÷₂∩⌞÷
+Quad ← ⍥R⌵˜↥₀⊟⊃-+⊙˜∘√⟜±˜-˙×⟜˜∘ℂ₀¯÷₂∩⌞÷
 
 ┌─╴test
   ⍤⤙≍ [1 2] Quad 1 ¯3 2
@@ -416,7 +416,7 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
 
 # Rank-polymorphic fast fourier transform
 # Deprecated! `fft` has been updated to be rank-polymorphic by default. Use that instead.
-RPFFT ← ⌅(⍥(⍉fft)⧻△.|⍥°(⍉fft)⧻△.)
+RPFFT ← ⌅(⍥(⍉fft)⧻⊸△|⍥°(⍉fft)⧻⊸△)
 
 # Rank-polymorphic convolution using fast fourier transform
 ┌─╴FFTConvolve
