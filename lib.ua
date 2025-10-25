@@ -423,4 +423,6 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
   Valid ← ⍥R=0↥⊃∩type(↘-+1⌵⊙⟜(×√/×⊸△⍜∩fft×∩⌞⬚0↙)⊃-↥◡∩△)
   # Convolution that maintains the largest of the input dimensions
   Same ← ↙⟜(↻⌊÷₂-)⊙⊸△↥⊃∩△Full
+  # Wrapping convolution producing the same shape as the largest input
+  Wrap ← ⍥R=0↥⊃∩type(×√/×⊸△⍜∩fft×∩⌞⬚0↙↥◡∩△)
 └─╴
