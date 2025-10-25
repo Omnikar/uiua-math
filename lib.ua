@@ -274,11 +274,6 @@ ModOrd ← ⊡1⊚=1˜◿ⁿ◡⋅⇡
   ⍤⤙≍ 2 ModInv 4 7
 └─╴
 
-# Binomial coefficient aka N choose K
-# ? K N
-# Deprecated! Use `⧅<` instead.
-Binom ← /×÷+1⟜-⇡
-
 # Convert a number X to a continued fraction to N terms.
 # 
 # Use `°CFrac` to convert to a number from a continued fraction.
@@ -418,10 +413,6 @@ Quad ← ⍥R⌵˜↥₀⊟⊃-+⊙F√⟜±˜-˙×⟜Fℂ₀¯÷₂∩⌞÷
 
 # Powerset of a list
 PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
-
-# Rank-polymorphic fast fourier transform
-# Deprecated! `fft` has been updated to be rank-polymorphic by default. Use that instead.
-RPFFT ← ⌅(⍥(⍉fft)⧻⊸△|⍥°(⍉fft)⧻⊸△)
 
 # Rank-polymorphic convolution using fast fourier transform
 ┌─╴FFTConvolve
