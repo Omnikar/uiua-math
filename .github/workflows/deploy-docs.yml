@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch's name
+  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
@@ -25,26 +25,13 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-        
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          
-      - name: Clone and build uiua-doc-gen
-        run: |
-          git clone -b dev https://github.com/Marcos-cat/uiua-doc-gen.git
-          cd uiua-doc-gen
-          cargo build
-          echo "$(pwd)/target/debug" >> $GITHUB_PATH
-        
-      - name: Generate Documentation
-        run: uiua-doc-gen --name ${{ github.event.repository.name }}
-        
+
+      - name: Build the website
+        uses: ekgame/uiua-doc-gen-action@main
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
