@@ -26,6 +26,52 @@ Var ← -˙×∩÷∩⊃⧻/+⟜˙×
 # Standard deviation
 Stdev ← √Var
 
+# -- Trigonometry --
+
+# Sine
+Sin ← ∿
+# Cosine
+Cos ← ∿˜-η
+# Tangent
+Tan ← ⌅(÷°∠|∠⊙1)
+
+# Cosecant
+Csc ← ⨪Sin
+# Secant
+Sec ← ⨪Cos
+# Cotangent
+Cot ← Tan˜-η
+
+# Hyperbolic Sine
+Sinh ← ⌅(÷₂-∩ₑ⊸¯|°ₑ+⟜⍜˙×+₁)
+# Hyperbolic Cosine
+Cosh ← ⌅(÷₂+∩ₑ⊸¯|°ₑ+⟜⍜˙×-₁)
+# Hyperbolic Tangent
+Tanh ← ⌅(÷⊃+-1ₑ×₂|÷₂°ₑ÷˜⊃-+1)
+
+# Hyperbolic Cosecant
+Csch ← ⨪Sinh
+# Hyperbolic Secant
+Sech ← ⨪Cosh
+# Hyperbolic Cotangent
+Coth ← ⨪Tanh
+
+┌─╴test
+  # Inverse functions have standard ranges
+  ⍤⤙≍ ¯η_0_η °Sin ¯1_0_1
+  ⍤⤙≍ 0_¯η_η_0 °Csc ¯∞_¯1_1_∞
+  ⍤⤙≍ π_η_0 °Cos ¯1_0_1
+  ⍤⤙≍ η_π_0_η °Sec ¯∞_¯1_1_∞
+  ⍤⤙≍ ¯η_¯η/2_0_η/2_η °Tan ¯∞_¯1_0_1_∞
+  ⍤⤙≍ π_3η/2_η_η/2_0 °Cot ¯∞_¯1_0_1_∞
+
+  ˙⍤ /×=1 ⁅₅ -∩˙×⊃Sinh Cosh ×2-⊸¬÷⟜⇡10 # Pythagorean Identity
+
+  ⍤⤙≍ ¯0.88137_0.88137 ⁅₅ °Csch ¯1_1
+  ⍤⤙≍ ∞_1.31696_0 ⁅₅ °Sech 0_1/2_1
+  ⍤⤙≍ ¯0.54931_¯∞_∞_0.54931 ⁅₅ °Coth ¯2_¯1_1_2
+└─╴
+
 # -- Matrices/Vectors --
 
 # ? SwappedRows Pivot
