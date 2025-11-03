@@ -478,6 +478,10 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
   ε ← 1e¯8
   # Initial step size
   H ← 0.01
+  # Minimum step size
+  HMin ← 1e¯10
+  # Maximum step size
+  HMax ← 1
 }
 
 # Temporarily public until macro scoping bug is fixed
@@ -509,8 +513,10 @@ OdeImpl‼ ↚ (
         ⊃(˜÷⍜°√/+/-)⊣ Mmp
       ))
   
-    OdeConfig~ε ⊙⊙⊙⊙⊙⊙⤙₂⊓A‼^0∘⋅◌
-    ∪⌞⊙∘×⊃(×0.84√₄˜÷|⨬◌⊃(˜∘⊸˜∩+|∪₂˜∩˜⊂⋅⊙¤)≤)
+    ⊙⊙⊙⊙⊙⊙⤙₂⊓A‼^0∘⋅◌
+    ⟜(OdeConfig~ε
+      ∪⌞⊙∘×⊃(×0.84√₄˜÷|⨬◌⊃(˜∘⊸˜∩+|∪₂˜∩˜⊂⋅⊙¤)≤))
+    ∪₂⌞⊙∘(↥⊙↧) OdeConfig!⊃HMin HMax
     ⊙⊙⊙⤚₂⋅⋅A‼^0∘
   )(⊙⊙⊙⊙⤙⊙⊙◌^1◡⋅B‼^1∘⊙⊙⊙⤚⋅⊙∘)
   ˜∩˜⊂⊙¤⋅⊙⊙⋅A‼^0◌
