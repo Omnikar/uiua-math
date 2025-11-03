@@ -344,6 +344,7 @@ Divisors ← ◌°▽⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
 
 # Error function
 Erf ← (
+  # From https://www.johndcook.com/blog/cpp_erf
   ˜÷1+1×0.3275911 ⟜(˜ⁿe¯˙×) ⌵⟜±
   ⊙[1.061405429 ¯1.453152027 1.421413741
     ¯0.284496736 0.254829592
