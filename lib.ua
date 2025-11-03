@@ -471,3 +471,79 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
   # Wrapping convolution producing the same shape as the largest input
   Wrap ← ⍥R=0↥⊃∩type(×√/×⊸△⍜∩fft×∩⌞⬚0↙↥◡∩△)
 └─╴
+
+# Configuration parameters for the Ode‼ macro
+~OdeConfig {
+  # Error bound
+  ε ← 1e¯8
+  # Initial step size
+  H ← 0.01
+}
+
+# Temporarily public until macro scoping bug is fixed
+# Import when using `Ode‼` or `Ode‼!`
+A‼ ←^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-2⊢˜⊓⊢⊏₁
+B‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10⊢˜⊓⊢⊏₁
+
+OdeImpl‼ ↚ (
+  # Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integrator
+  # From https://math.okstate.edu/people/yqwang/teaching/math4513_fall11/Notes/rungekutta.pdf
+  ⟜⊓⊃⋅⊙∘OdeConfig~H⊓A‼^0∘∩[]
+  ⍢⟜(
+    ⊙(◡(⊙⊓¤⊙⊓A‼^0¤[]
+        {[0]
+         [1/4 1/4]
+         [3/8 3/32 9/32]
+         [12/13 1932/2197 ¯7200/2197 7296/2197]
+         [1 439/216 ¯8 3680/513 ¯845/4104]
+         [1/2 ¯8/27 2 ¯3544/2565 1859/4104 ¯11/40]}
+      
+        ⊃∧◇(
+          ˜⊂¤×⊸⊃⋅⋅⋅∘(
+            ^0˜∩+⊙/+∪₂⌟˜∩×⊙∘°⊂⊙⊙⊙⊙⤙⊓A‼^0∘◌
+          )
+        )⋅⋅⋅∘
+      
+        [[25/216 0 1408/2565 2197/4104 ¯1/5 0]
+         [16/135 0 6656/12825 28561/56430 ¯9/50 2/55]]
+        ⊃(˜÷⍜°√/+/-)⊣ Mmp
+      ))
+  
+    OdeConfig~ε ⊙⊙⊙⊙⊙⊙⤙₂⊓A‼^0∘⋅◌
+    ∪⌞⊙∘×⊃(×0.84√₄˜÷|⨬◌⊃(˜∘⊸˜∩+|∪₂˜∩˜⊂⋅⊙¤)≤)
+    ⊙⊙⊙⤚₂⋅⋅A‼^0∘
+  )(⊙⊙⊙⊙⤙⊙⊙◌^1◡⋅B‼^1∘⊙⊙⊙⤚⋅⊙∘)
+  ˜∩˜⊂⊙¤⋅⊙⊙⋅A‼^0◌
+)
+
+# More configurable version of `Ode‼`
+# 
+# The first of the three functions can be used to set optional arguments, namely ε, the error bound for the integration.
+# The remaining two functions correspond to those of `Ode‼`.
+Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
+# Numerical integrator
+# 
+# Note: Due to a current bug in the interpreter, using this macro temporarily requires also importing the `A‼` macro from this library.
+# 
+# Takes two functions and two values.
+# - The first function should take a time value and a state vector and output the derivative of the state vector.
+# - The second function should take anywhere from 1 to 4 arguments and return 0 or 1 for whether to continue simulating. Based on how many inputs the second function takes, it will be passed:
+#   1. The current time
+#   2. The current state vector
+#   3. The array of all past times
+#   4. The array of all past state vectors
+# 
+# The two values should respectively be the initial time and the initial state vector.
+# 
+# Example: Simulating a damped pendulum
+# This simulates the motion of a damped pendulum that begins vertical with an initial angular velocity of 12 radians per second.
+# ```uiua
+# g ← 9.81 # Gravity
+# L ← 1    # Pendulum length
+# μ ← 0.5  # Damping coefficient
+# Ode‼(⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10) 0 [0 12]
+# ```
+# 
+# Uses Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integration.
+# T X ? T₀ X₀
+Ode‼ ← Ode‼!∘^0^1
