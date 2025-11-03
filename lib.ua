@@ -520,6 +520,15 @@ OdeImpl‼ ↚ (
 # 
 # The first of the three functions can be used to set optional arguments, namely ε, the error bound for the integration.
 # The remaining two functions correspond to those of `Ode‼`.
+# 
+# Example: Changing simulation precision
+# This sets the simulation precision threshold to a larger value (meaning less precision, with a cheaper simulation).
+# ```uiua
+# g ← 9.81 # Gravity
+# L ← 1    # Pendulum length
+# μ ← 0.5  # Damping coefficient
+# Ode‼!(°⊸ε1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10) 0 [0 12]
+# ```
 Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
 # Numerical integrator
 # 
