@@ -484,9 +484,7 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
   HMax ← 1
 }
 
-# Temporarily public until macro scoping bug is fixed
-# Import when using `Ode‼` or `Ode‼!`
-A‼ ←^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-2⊢˜⊓⊢⊏₁
+A‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-2⊢˜⊓⊢⊏₁
 B‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10⊢˜⊓⊢⊏₁
 C‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-1⊢˜⊓⊢⊏₁
 
@@ -549,8 +547,6 @@ Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
 
 # Numerical integrator
 # 
-# Note: Due to a current bug in the interpreter, using this macro temporarily requires also importing the `A‼` macro from this library.
-# 
 # Takes two functions and two values.
 # - The first function should take a time value and a state vector and output the derivative of the state vector.
 # - The second function should take anywhere from 1 to 4 arguments and return 0 or 1 for whether to continue simulating. Based on how many inputs the second function takes, it will be passed:
@@ -608,8 +604,6 @@ OdeT‼ ← (
 )
 
 # Numerical integrator
-# 
-# Note: Due to a current bug in the interpreter, using this macro temporarily requires also importing the `A‼` macro from this library.
 # 
 # Takes a function and two values.
 # The function should take a time value and a state vector and output the derivative of the state vector.

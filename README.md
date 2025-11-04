@@ -72,5 +72,7 @@ Functions list (see in-code documentation for more detail)
 | `Quad` | Po-Shen quadratic solver |
 | `PSet` | Powerset of a list |
 | `FFTConvolve` | Rank-polymorphic convolution using fast fourier transform |
-| `Ode‼` | Numerical integrator |
+| `Ode‼` | Numerical integrator, simulates while predicate is true |
 | `Ode‼!` | More configurable version of `Ode‼` |
+| `OdeT!` | Numerical integrator, outputs specific time samples |
+| `OdeT‼` | More configurable version of `OdeT!` |
