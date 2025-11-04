@@ -543,6 +543,7 @@ OdeImpl‼ ↚ (
 # 0      # Initial time of 0
 # Ode‼!(°⊸ε 1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10)
 # ```
+# T X ? T₀ X₀
 Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
 
 # Numerical integrator
@@ -593,6 +594,7 @@ Ode‼ ← Ode‼!∘^0^1
 # ⍜×⇡5 10 # Time from 0 to 10 at 5 samples per second
 # OdeT‼(°⊸ε 1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟])
 # ```
+# X ? T X₀
 OdeT‼ ← (
   OdeConfig!⊃⊓C‼^0◌∘(
     ⤙⊓C‼^0∘◌⊓C‼^0∘⊃(/↥|/↧⧈-⍆|/↧)
