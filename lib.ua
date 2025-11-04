@@ -493,7 +493,7 @@ C‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-1⊢˜⊓⊢⊏₁
 OdeImpl‼ ↚ (
   # Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integrator
   # From https://math.okstate.edu/people/yqwang/teaching/math4513_fall11/Notes/rungekutta.pdf
-  ⟜⊓⊃⋅⊙∘OdeConfig~H⊓A‼^0∘∩[]
+  ⟜⊓⊃⋅⊙∘OdeConfig!(↥⊙↧⊃HMin⊃HMax H)⊓A‼^0∘∩[]
   ⍢⟜(
     ⊙(◡(⊙⊓¤⊙⊓A‼^0¤[]
         {[0]
@@ -515,8 +515,10 @@ OdeImpl‼ ↚ (
       ))
   
     ⊙⊙⊙⊙⊙⊙⤙₂⊓A‼^0∘⋅◌
-    ⟜(OdeConfig~ε
-      ∪⌞⊙∘×⊃(×0.84√₄˜÷|⨬◌⊃(˜∘⊸˜∩+|∪₂˜∩˜⊂⋅⊙¤)≤))
+    ⟜(∪⌞⊙∘×⊃(
+        ×0.84√₄˜÷OdeConfig~ε
+      | ⊙⋅◌↥◡OdeConfig!⊃(≤ε|∪∪∪∪≤HMin)
+        ⨬◌⊃(˜∘⊸˜∩+|∪₂˜∩˜⊂⋅⊙¤)))
     ∪₂⌞⊙∘(↥⊙↧) OdeConfig!⊃HMin HMax
     ⊙⊙⊙⤚₂⋅⋅A‼^0∘
   )(⊙⊙⊙⊙⤙⊙⊙◌^1◡⋅B‼^1∘⊙⊙⊙⤚⋅⊙∘)
