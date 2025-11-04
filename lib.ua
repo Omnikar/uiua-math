@@ -488,6 +488,7 @@ PSet ← ⍚▽⋯⇡˜ⁿ2⧻⟜¤
 # Import when using `Ode‼` or `Ode‼!`
 A‼ ←^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-2⊢˜⊓⊢⊏₁
 B‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10⊢˜⊓⊢⊏₁
+C‼ ↚^ $"∩_(_)"+@₀⬚0⍜⧻↥₁⇌⊥10-1⊢˜⊓⊢⊏₁
 
 OdeImpl‼ ↚ (
   # Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integrator
@@ -524,7 +525,11 @@ OdeImpl‼ ↚ (
 
 # More configurable version of `Ode‼`
 # 
-# The first of the three functions can be used to set optional arguments, namely ε, the error bound for the integration.
+# The first of the three functions can be used to set optional arguments:
+# - `ε` - error bound
+# - `HMin` - minimum step size
+# - `HMax` - maximum step size
+# - `H` - initial step size
 # The remaining two functions correspond to those of `Ode‼`.
 # 
 # Example: Changing simulation precision
@@ -533,9 +538,13 @@ OdeImpl‼ ↚ (
 # g ← 9.81 # Gravity
 # L ← 1    # Pendulum length
 # μ ← 0.5  # Damping coefficient
-# Ode‼!(°⊸ε1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10) 0 [0 12]
+# 
+# [0 12] # Initial position of 0 and velocity of 12
+# 0      # Initial time of 0
+# Ode‼!(°⊸ε 1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10)
 # ```
 Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
+
 # Numerical integrator
 # 
 # Note: Due to a current bug in the interpreter, using this macro temporarily requires also importing the `A‼` macro from this library.
@@ -556,9 +565,68 @@ Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
 # g ← 9.81 # Gravity
 # L ← 1    # Pendulum length
 # μ ← 0.5  # Damping coefficient
-# Ode‼(⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10) 0 [0 12]
+# 
+# [0 12] # Initial position of 0 and velocity of 12
+# 0      # Initial time of 0
+# Ode‼(⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]|<10)
 # ```
 # 
 # Uses Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integration.
 # T X ? T₀ X₀
 Ode‼ ← Ode‼!∘^0^1
+
+# More configurable version of `OdeT!`
+# 
+# The first of the three functions can be used to set optional arguments:
+# - `ε` - error bound
+# - `HMin` - minimum step size
+# - `HMax` - maximum step size
+# - `H` - initial step size
+# The remaining function corresponds to that of `OdeT!`.
+# 
+# Example: Simulating a damped pendulum
+# This sets the simulation precision threshold to a larger value (meaning less precision, with a cheaper simulation).
+# ```uiua
+# g ← 9.81 # Gravity
+# L ← 1    # Pendulum length
+# μ ← 0.5  # Damping coefficient
+# 
+# [0 12]  # Initial position of 0 and velocity of 12
+# ⍜×⇡5 10 # Time from 0 to 10 at 5 samples per second
+# OdeT‼(°⊸ε 1e¯3|⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟])
+# ```
+OdeT‼ ← (
+  OdeConfig!⊃⊓C‼^0◌∘(
+    ⤙⊓C‼^0∘◌⊓C‼^0∘⊃(/↥|/↧⧈-⍆|/↧)
+    ⬚∘Ode‼!(^0⊓C‼^0∘°⊸HMax|^1|<°◌)
+  )
+  ⟜(⤚⊏⊙⧈⊟-₁˜⨂1⊸>⌟)
+  ˜÷˜-⊙≡⊃⊢/-
+  ⊙(⍜⊙-×|°⊟⤸₁⊏|⧈⊟)
+)
+
+# Numerical integrator
+# 
+# Note: Due to a current bug in the interpreter, using this macro temporarily requires also importing the `A‼` macro from this library.
+# 
+# Takes a function and two values.
+# The function should take a time value and a state vector and output the derivative of the state vector.
+# The two values should be as follows:
+# 1. A list of all times to output samples at
+# 2. The initial state vector, interpreted to be the state at time equal to the smallest value in the time value list
+# 
+# Example: Simulating a damped pendulum
+# This simulates the motion of a damped pendulum that begins vertical with an initial angular velocity of 12 radians per second.
+# ```uiua
+# g ← 9.81 # Gravity
+# L ← 1    # Pendulum length
+# μ ← 0.5  # Damping coefficient
+# 
+# [0 12]  # Initial position of 0 and velocity of 12
+# ⍜×⇡5 10 # Time from 0 to 10 at 5 samples per second
+# OdeT!⋅⊃[⊣|¯+˜∩×g μ÷L∿°⊟]
+# ```
+# 
+# Uses Runge-Kutta-Fehlberg 4th-5th-order variable-step-size numerical integration.
+# X ? T X₀
+OdeT! ← OdeT‼∘^
