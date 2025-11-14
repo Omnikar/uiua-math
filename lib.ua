@@ -576,7 +576,7 @@ Ode‼ ← Ode‼!∘^0^1
 
 # More configurable version of `OdeT!`
 # 
-# The first of the three functions can be used to set optional arguments:
+# The first of the two functions can be used to set optional arguments:
 # - `ε` - error bound
 # - `HMin` - minimum step size
 # - `HMax` - maximum step size
