@@ -532,7 +532,7 @@ OdeImpl‼ ↚ (
 # - `H` - initial step size
 # The remaining two functions correspond to those of `Ode‼`.
 # 
-# Example: Changing simulation precision
+# Example: Changing simulation precision.
 # This sets the simulation precision threshold to a larger value (meaning less precision, with a cheaper simulation).
 # ```uiua
 # g ← 9.81 # Gravity
@@ -558,7 +558,7 @@ Ode‼! ← OdeImpl‼^1^2 OdeConfig!(^0($"_New"˜▽@⊙-1⊢⋅⊢)^!^0)
 # 
 # The two values should respectively be the initial time and the initial state vector.
 # 
-# Example: Simulating a damped pendulum
+# Example: Simulating a damped pendulum.
 # This simulates the motion of a damped pendulum that begins vertical with an initial angular velocity of 12 radians per second.
 # ```uiua
 # g ← 9.81 # Gravity
@@ -583,7 +583,7 @@ Ode‼ ← Ode‼!∘^0^1
 # - `H` - initial step size
 # The remaining function corresponds to that of `OdeT!`.
 # 
-# Example: Simulating a damped pendulum
+# Example: Changing simulation precision.
 # This sets the simulation precision threshold to a larger value (meaning less precision, with a cheaper simulation).
 # ```uiua
 # g ← 9.81 # Gravity
@@ -613,7 +613,7 @@ OdeT‼ ← (
 # 1. A list of all times to output samples at
 # 2. The initial state vector, interpreted to be the state at time equal to the smallest value in the time value list
 # 
-# Example: Simulating a damped pendulum
+# Example: Simulating a damped pendulum.
 # This simulates the motion of a damped pendulum that begins vertical with an initial angular velocity of 12 radians per second.
 # ```uiua
 # g ← 9.81 # Gravity
