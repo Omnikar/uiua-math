@@ -5,7 +5,7 @@
 R ↚ ◌°ℂ
 
 # Flip
-F ← ˜∘
+F ↚ ˜∘
 
 # -- Averages --
 
@@ -205,7 +205,7 @@ QRotImpl ↚ ⍜⊙°⍉↘1 Qqp Qqp ⟜⍜∩°⍉(˜⬚0↙₋₄⍜↘¯ 1)
 # For each quaternion-vector pair, computes Q * V * Q'.
 # ```uiua
 # RQuat η 0_0_1        # Create a rotation by η radians about 0_0_1
-# QRot ¤:[3_2_0 1_3_2] # Use the quaternion to rotate 3_2_0 and 1_3_2
+# QRot ¤⊙[3_2_0 1_3_2] # Use the quaternion to rotate 3_2_0 and 1_3_2
 # ```
 # `QRot` can be used with ⍜ to undo the rotations afterward.
 # ? Q V
