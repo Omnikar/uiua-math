@@ -340,6 +340,24 @@ Divisors ← ◌°▽⊂⊃÷⇌ ▽=0⊸⊃◿÷ +1⇡⌊⊸√
   ⍤⤙≍ [1 2 4 5 8 10 20 25 40 50 100 125 200 250 500 1000] Divisors 1000
 └─╴
 
+# Efficient calculation of N^K mod M
+# ? K N M
+# Based on code by romanpro100
+PowMod ← ˜/(◿⊙×⤙˜◿ⁿ2)ⁿ⇌⋯
+
+┌─╴test
+  ⍤⤙≍1024 PowMod 10 2 10000
+  ⍤⤙≍0 PowMod 10 2 2
+  ⍤⤙≍7959 PowMod 1000000 7 29999
+  ⍤⤙≍1 PowMod 1000000 7 30000
+  ⍤⤙≍5336 PowMod 1000000000 30000 29876
+  ⍤⤙≍4 PowMod (ⁿ12 2) 5 69
+  ⍤⤙≍25 PowMod 1024 5 75
+  ⍤⤙≍25 PowMod 90 5 75
+  ⍤⤙≍50 PowMod 45 5 75
+  ⍤⤙≍29597504 PowMod 18168396 252533 33554393
+└─╴
+
 # -- Probability --
 
 # Error function
