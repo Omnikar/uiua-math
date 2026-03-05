@@ -55,6 +55,7 @@ Functions list (see in-code documentation for more detail)
 | `Base` | Encode an array of numbers into digits of a given base |
 | `ModInv` | Inverse of N modulo M |
 | `ModOrd` | Multiplicative order of N modulo M |
+| `PowMod` | Efficient calculation of N^K modulo M |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
 | `Divisors` | Divisors of N (including 1 and N) |
 | `PowMod` | Efficient calculation of N^K mod M |
