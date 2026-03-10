@@ -58,7 +58,6 @@ Functions list (see in-code documentation for more detail)
 | `PowMod` | Efficient calculation of N^K modulo M |
 | `CFrac` | Convert a number X to a continued fraction to N terms |
 | `Divisors` | Divisors of N (including 1 and N) |
-| `PowMod` | Efficient calculation of N^K mod M |
 | `Erf` | Error function |
 | `DistRand` | Seeded random indices from a distribution array |
 | `BoxMuller` | Box-muller transform: generate pairs of normally distributed values given pairs of uniformly distributed values |
