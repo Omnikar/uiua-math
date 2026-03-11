@@ -141,7 +141,11 @@ Mmp ← |2 ⌅(⊞Dot⊙⍉|◌⍜≡⊂Mgje)
 Mvp ← |2 ⌅(Dot⍉|♭◌⍜≡⊂Mgje)
 # Matrix power
 # ? P M
-Mpow ← ◌⍥⟜Mmp⊙(F˙⊞=°⊏)
+MPow ← ◌⍥⟜Mmp⊙(F˙⊞=°⊏)
+# Deprecated! `Mpow` has been renamed to `MPow`
+# Matrix power
+# ? P M
+Mpow ← MPow
 # TODO: Change to this if it comes to work with negative powers
 # Mpow ← ⍥⟜Mmp⊙(˙⊞=°⊏)
 

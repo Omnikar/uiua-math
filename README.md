@@ -44,7 +44,7 @@ Functions list (see in-code documentation for more detail)
 | `Cross` | Cross product |
 | `Mmp` | Matrix product |
 | `Mvp` | Matrix-vector product |
-| `Mpow` | Matrix power |
+| `MPow` | Matrix power |
 | `Qqp` | Quaternion product |
 | `RQuat` | Create 3D rotation quaternions |
 | `QRot` | Rotate a 3D vector array using a quaternion array |
