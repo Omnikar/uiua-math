@@ -1,1 +1,3 @@
-`todo.md` is currently empty.
+- Detailed document.
+- General version(literally general number field) for EEA, Matrix_Multiple, GaussianElimination, and extended polynomial operation for any ring.
+- Miller-Rabin. Unfortunately, we must import the additional lib uiua-bignum to avoid the risk to overflow.

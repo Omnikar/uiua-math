@@ -77,3 +77,8 @@ Functions list (see in-code documentation for more detail)
 | `Ode‼!` | More configurable version of `Ode‼` |
 | `OdeT!` | Numerical integrator, outputs specific time samples |
 | `OdeT‼` | More configurable version of `OdeT!` |
+| `PolyMul` | Multiple two polynomials |
+| `PolyDiv` | Polynomial division |
+| `PolyAdd` |	Polynomial addition (supports GF(p) when combined with modulo, use PolyAddMod) |
+| `PolyMinus` |	Polynomial subtraction (supports GF(p) when combined with modulo, use PolyMinusMod) |
+| `PolyDivModTwo` |	Polynomial long division and remainder over Galois Field GF(2) |
