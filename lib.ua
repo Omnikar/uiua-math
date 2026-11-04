@@ -12,7 +12,7 @@ F ↚ ˜∘
 # Arithmetic mean
 Mean ← ÷⧻⟜/+
 # Geometric mean
-GMean ← ⁿ˜÷1⧻⟜/×
+GMean ← ⍜(°ₑ|Mean)
 # Harmonic mean
 HMean ← ÷/+⟜⧻˜÷1
 # Quadratic mean
@@ -22,7 +22,7 @@ QMean ← √÷⧻⟜/+˙×
 Median ← ÷2/+⊏⊟⊃⌊⌈÷2-1⊸⧻⍆
 
 # Variance
-Var ← -˙×∩÷∩⊃⧻/+⟜˙×
+Var ← Mean˙×-⟜Mean
 # Standard deviation
 Stdev ← √Var
 
@@ -225,6 +225,9 @@ QRot ← ⌅(QRotImpl|QRotImpl⍜(↘1°⍉)¯)
 # Pervasive factorial
 Fact ← /×°⍉+1⬚0≡₀⇡
 
+# Pervasive ln(factorial)
+LogFact ← /+°ₑ°⍉+1⬚0≡₀⇡
+
 ┌─╴test
   ⍤⤙≍ [1 1 2 6 24 120 720 5040] Fact [0 1 2 3 4 5 6 7]
 └─╴
@@ -419,7 +422,11 @@ Gaussian ← ÷/+⊸♭ₑ¯÷2˙×˜÷⌵˙⊞ℂ-÷2-1⟜⇡
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X successes
 # ? p n X
-BinomPmf ← ××⊃(≡₀⧅>|˜⋅ⁿ|ⁿ⊓-¬) ⤚⋅F
+BinomPmf ← ₑ++⊃(
+  ×°ₑ⊙◌
+| ×°ₑ¬⊙˜-
+| ⋅(-+⊃(LogFact˜-|⋅LogFact|LogFact⊙◌))
+)
 # Cumulative binomial distribution
 # 
 # Probability that n Bernoulli trials each with success probability p will amount to X or fewer successes
@@ -443,7 +450,7 @@ GeomCmf ← ⍜¬˜ⁿ⊙(+1)
 # 
 # Probability of X occurrences of an unlikely event over many trials with expected value λ
 # ? λ X
-PoissonPmf ← ÷⊙×⊃(⋅Fact|˜ⁿ|ₑ¯)
+PoissonPmf ← ₑ˜-- ⊃(⋅LogFact|×°ₑ|⊙◌)
 # Cumulative Poisson distribution
 # 
 # Probability of X or fewer occurrences of an unlikely event over many trials with expected value λ
